@@ -1,0 +1,275 @@
+[
+ {
+  "id": "mltut-agentic",
+  "type": "webpage",
+  "title": "Agentic AI Math Formulas",
+  "author": [
+   {
+    "literal": "ML Tut"
+   }
+  ],
+  "lab": {
+   "work": "lab:work/mltut-agentic",
+   "role": "primary",
+   "supports": [
+    "lab:claim/orig-12-formulas"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": false,
+    "container": false,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고문헌 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  }
+ },
+ {
+  "id": "sutton2018reinforcement",
+  "type": "book",
+  "title": "Reinforcement Learning: An Introduction",
+  "author": [
+   {
+    "family": "Sutton",
+    "given": "Richard S."
+   },
+   {
+    "family": "Barto",
+    "given": "Andrew G."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2018
+    ]
+   ]
+  },
+  "publisher": "MIT Press",
+  "lab": {
+   "work": "lab:work/sutton2018reinforcement",
+   "role": "background",
+   "supports": [
+    "lab:claim/ch06-basis",
+    "lab:claim/ch07-basis",
+    "lab:claim/ch08-basis",
+    "lab:claim/ch09-basis",
+    "lab:claim/ch11-basis",
+    "lab:claim/ch13-basis"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고문헌 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  }
+ },
+ {
+  "id": "russell2021artificial",
+  "type": "book",
+  "title": "Artificial Intelligence: A Modern Approach",
+  "author": [
+   {
+    "family": "Russell",
+    "given": "Stuart"
+   },
+   {
+    "family": "Norvig",
+    "given": "Peter"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2021
+    ]
+   ]
+  },
+  "publisher": "Pearson",
+  "lab": {
+   "work": "lab:work/russell2021artificial",
+   "role": "background",
+   "supports": [
+    "lab:claim/ch01-basis",
+    "lab:claim/ch02-basis",
+    "lab:claim/ch03-basis"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고문헌 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  }
+ },
+ {
+  "id": "hart1968formal",
+  "type": "article-journal",
+  "title": "A Formal Basis for the Heuristic Determination of Minimum Cost Paths",
+  "author": [
+   {
+    "family": "Hart",
+    "given": "Peter E."
+   },
+   {
+    "family": "Nilsson",
+    "given": "Nils J."
+   },
+   {
+    "family": "Raphael",
+    "given": "Bertram"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1968
+    ]
+   ]
+  },
+  "container-title": "IEEE Transactions on Systems Science and Cybernetics",
+  "lab": {
+   "work": "lab:work/hart1968formal",
+   "role": "background",
+   "supports": [
+    "lab:claim/ch04-basis"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고문헌 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  }
+ },
+ {
+  "id": "nash1950equilibrium",
+  "type": "article-journal",
+  "title": "Equilibrium Points in n-Person Games",
+  "author": [
+   {
+    "family": "Nash",
+    "given": "John F."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1950
+    ]
+   ]
+  },
+  "container-title": "Proceedings of the National Academy of Sciences",
+  "lab": {
+   "work": "lab:work/nash1950equilibrium",
+   "role": "background",
+   "supports": [
+    "lab:claim/ch05-basis"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고문헌 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  }
+ },
+ {
+  "id": "bellman1957dynamic",
+  "type": "book",
+  "title": "Dynamic Programming",
+  "author": [
+   {
+    "family": "Bellman",
+    "given": "Richard"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1957
+    ]
+   ]
+  },
+  "publisher": "Princeton University Press",
+  "lab": {
+   "work": "lab:work/bellman1957dynamic",
+   "role": "background",
+   "supports": [
+    "lab:claim/ch10-basis"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고문헌 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  }
+ },
+ {
+  "id": "williams1992simple",
+  "type": "article-journal",
+  "title": "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning",
+  "author": [
+   {
+    "family": "Williams",
+    "given": "Ronald J."
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1992
+    ]
+   ]
+  },
+  "container-title": "Machine Learning",
+  "lab": {
+   "work": "lab:work/williams1992simple",
+   "role": "background",
+   "supports": [
+    "lab:claim/ch12-basis"
+   ],
+   "locs": [],
+   "verified": {
+    "title": true,
+    "author": true,
+    "year": true,
+    "container": true,
+    "pages": false,
+    "doi": false
+   },
+   "checkedBy": "페이지 참고문헌 목록에서 옮김 (외부 대조 안 함)",
+   "checkedSource": "page"
+  }
+ }
+]

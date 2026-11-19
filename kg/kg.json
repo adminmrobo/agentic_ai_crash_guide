@@ -1,0 +1,2824 @@
+{
+ "version": "1.0",
+ "page": "agentic_ai_crash_guide",
+ "nodes": [
+  {
+   "id": "lab:concept/bayes-theorem",
+   "type": "Concept",
+   "label": {
+    "ko": "베이즈 정리",
+    "en": "Bayes' theorem"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv1",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "처음 짐작에 단서의 무게를 곱해 짐작을 고치는 식."
+   },
+   "family": "math"
+  },
+  {
+   "id": "lab:limitation/ch01",
+   "type": "Limitation",
+   "label": {
+    "ko": "처음 짐작과 단서 확률을 누가 정하느냐가 문제입니다",
+    "en": "Limitation of chapter 1"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv1",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "math"
+  },
+  {
+   "id": "lab:simulation/p1-lv1",
+   "type": "Simulation",
+   "label": {
+    "ko": "1장 실험 패널",
+    "en": "Chapter 1 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv1",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv1-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "처음 짐작을 0.3에서 0.1로 낮추면 고친 짐작은 어떻게 될까요?",
+    "en": "Quiz 1"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv1",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:concept/expected-utility",
+   "type": "Concept",
+   "label": {
+    "ko": "기대효용",
+    "en": "Expected utility"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv2",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "결과마다 확률 × 만족도를 더해 행동별 점수를 내고 큰 쪽을 고르는 방법."
+   },
+   "family": "math"
+  },
+  {
+   "id": "lab:limitation/ch02",
+   "type": "Limitation",
+   "label": {
+    "ko": "만족도 숫자는 사람이 정해야 합니다",
+    "en": "Limitation of chapter 2"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv2",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "math"
+  },
+  {
+   "id": "lab:simulation/p1-lv2",
+   "type": "Simulation",
+   "label": {
+    "ko": "2장 실험 패널",
+    "en": "Chapter 2 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv2",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv2-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "틀렸을 때 손해가 −20에서 −5로 줄면 어느 쪽이 이길까요? (맞을 확률 0.77, 되묻기 +4)",
+    "en": "Quiz 2"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv2",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:method/constrained-optimization",
+   "type": "Method",
+   "label": {
+    "ko": "제약 최적화",
+    "en": "Constrained optimization"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv3",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "넘으면 안 되는 선을 먼저 긋고 그 안에서 점수가 가장 큰 조합을 찾는 방법."
+   },
+   "family": "math"
+  },
+  {
+   "id": "lab:limitation/ch03",
+   "type": "Limitation",
+   "label": {
+    "ko": "도구가 n개면 조합은 2의 n제곱 개로 늘어납니다",
+    "en": "Limitation of chapter 3"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv3",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "math"
+  },
+  {
+   "id": "lab:simulation/p1-lv3",
+   "type": "Simulation",
+   "label": {
+    "ko": "3장 실험 패널",
+    "en": "Chapter 3 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv3",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv3-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "시간 제한을 7초로 줄이면 점수가 가장 큰 조합은?",
+    "en": "Quiz 3"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv3",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:method/a-star-search",
+   "type": "Method",
+   "label": {
+    "ko": "A* 탐색",
+    "en": "A* search"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv4",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "지금까지 쓴 비용과 남은 비용 어림의 합이 가장 작은 단계부터 펼치는 길 찾기."
+   }
+  },
+  {
+   "id": "lab:limitation/ch04",
+   "type": "Limitation",
+   "label": {
+    "ko": "좋은 어림 h를 만들기가 어렵습니다",
+    "en": "Limitation of chapter 4"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv4",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:simulation/p1-lv4",
+   "type": "Simulation",
+   "label": {
+    "ko": "4장 실험 패널",
+    "en": "Chapter 4 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv4",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv4-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "어림 배수를 0으로 두어 h를 쓰지 않으면?",
+    "en": "Quiz 4"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv4",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:concept/nash-equilibrium",
+   "type": "Concept",
+   "label": {
+    "ko": "내시 균형",
+    "en": "Nash equilibrium"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv5",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "서로 상대의 선택을 보고도 혼자 바꿀 이유가 없는 상태."
+   }
+  },
+  {
+   "id": "lab:limitation/ch05",
+   "type": "Limitation",
+   "label": {
+    "ko": "균형이 여러 개면 어느 것으로 갈지 모릅니다",
+    "en": "Limitation of chapter 5"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv5",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:simulation/p1-lv5",
+   "type": "Simulation",
+   "label": {
+    "ko": "5장 실험 패널",
+    "en": "Chapter 5 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv5",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv5-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "'숨바꼭질 상황'에서 순수 전략 균형은 몇 개일까요?",
+    "en": "Quiz 5"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv5",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:concept/state-transition",
+   "type": "Concept",
+   "label": {
+    "ko": "상태 전이 확률",
+    "en": "State transition probability"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv6",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "지금 상태와 행동이 정해졌을 때 다음 상태로 갈 확률."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:limitation/ch06",
+   "type": "Limitation",
+   "label": {
+    "ko": "실제로는 사용자의 속마음(상태)을 다 볼 수 없습니다",
+    "en": "Limitation of chapter 6"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv6",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:simulation/p1-lv6",
+   "type": "Simulation",
+   "label": {
+    "ko": "6장 실험 패널",
+    "en": "Chapter 6 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv6",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv6-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "'헷갈림 + 답하기' 줄에서 완료가 30%라면 헷갈림에 남을 확률은?",
+    "en": "Quiz 6"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv6",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:concept/discounted-return",
+   "type": "Concept",
+   "label": {
+    "ko": "할인 누적 보상",
+    "en": "Discounted return"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv7",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "늦게 받는 보상일수록 할인율을 곱해 깎아 모두 더한 값."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:limitation/ch07",
+   "type": "Limitation",
+   "label": {
+    "ko": "γ를 얼마로 할지에 따라 하루봇의 성격이 크게 바뀝니다",
+    "en": "Limitation of chapter 7"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv7",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:simulation/p1-lv7",
+   "type": "Simulation",
+   "label": {
+    "ko": "7장 실험 패널",
+    "en": "Chapter 7 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv7",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv7-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "γ = 0.5, 보상이 [+4, +4]이면 G는?",
+    "en": "Quiz 7"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv7",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:concept/state-value-function",
+   "type": "Concept",
+   "label": {
+    "ko": "상태가치 함수",
+    "en": "State-value function"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv8",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "정책을 따를 때 그 상태에서 받을 할인 누적 보상의 평균."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:limitation/ch08",
+   "type": "Limitation",
+   "label": {
+    "ko": "정확해지려면 판을 아주 많이 돌려야 합니다",
+    "en": "Limitation of chapter 8"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv8",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:simulation/p1-lv8",
+   "type": "Simulation",
+   "label": {
+    "ko": "8장 실험 패널",
+    "en": "Chapter 8 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv8",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv8-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "Vπ에서 π의 뜻은?",
+    "en": "Quiz 8"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv8",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:concept/action-value-function",
+   "type": "Concept",
+   "label": {
+    "ko": "행동가치 함수",
+    "en": "Action-value function"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv9",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "첫 행동을 정해 두고 그 뒤 정책을 따를 때의 평균 누적 보상."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:limitation/ch09",
+   "type": "Limitation",
+   "label": {
+    "ko": "행동과 상태가 많으면 Q 표가 엄청나게 커집니다",
+    "en": "Limitation of chapter 9"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv9",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:simulation/p1-lv9",
+   "type": "Simulation",
+   "label": {
+    "ko": "9장 실험 패널",
+    "en": "Chapter 9 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv9",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv9-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "정책이 '헷갈리면 늘 되묻기'라면 V(헷갈림)은?",
+    "en": "Quiz 9"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv9",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:concept/bellman-equation",
+   "type": "Concept",
+   "label": {
+    "ko": "벨만 방정식",
+    "en": "Bellman equation"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv10",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "지금 가치를 바로 받는 보상과 다음 상태 가치의 평균으로 잇는 되풀이 식."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:limitation/ch10",
+   "type": "Limitation",
+   "label": {
+    "ko": "확률표 P를 알아야 계산할 수 있습니다",
+    "en": "Limitation of chapter 10"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv10",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:simulation/p1-lv10",
+   "type": "Simulation",
+   "label": {
+    "ko": "10장 실험 패널",
+    "en": "Chapter 10 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv10",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv10-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "벨만 방정식을 푸는 방법과 가장 닮은 학교 수학은?",
+    "en": "Quiz 10"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv10",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:method/softmax-policy",
+   "type": "Method",
+   "label": {
+    "ko": "소프트맥스 정책",
+    "en": "Softmax policy"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv11",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "행동 점수를 지수로 키운 뒤 합으로 나눠 확률로 바꾸고 그 확률대로 고르는 정책."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:limitation/ch11",
+   "type": "Limitation",
+   "label": {
+    "ko": "특징 φ를 사람이 골라야 하고, 가중치와 특징을 단순히 곱해 더하는 방식이라 복잡한 관계는 못 잡습니다",
+    "en": "Limitation of chapter 11"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv11",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:simulation/p1-lv11",
+   "type": "Simulation",
+   "label": {
+    "ko": "11장 실험 패널",
+    "en": "Chapter 11 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv11",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv11-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "세 말투 점수에 똑같이 5를 더하면 확률은?",
+    "en": "Quiz 11"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv11",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:method/reinforce",
+   "type": "Method",
+   "label": {
+    "ko": "REINFORCE (정책 경사)",
+    "en": "REINFORCE"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv12",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "받은 누적 보상만큼 고른 행동의 확률을 올리는 쪽으로 가중치를 고치는 방법."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:limitation/ch12",
+   "type": "Limitation",
+   "label": {
+    "ko": "점수가 모두 양수면 덜 좋은 말투도 뽑히기만 하면 확률이 올라갑니다",
+    "en": "Limitation of chapter 12"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv12",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:simulation/p1-lv12",
+   "type": "Simulation",
+   "label": {
+    "ko": "12장 실험 패널",
+    "en": "Chapter 12 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv12",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv12-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "하루 점수가 모두 6~10점(양수)일 때 이 방법의 약점은?",
+    "en": "Quiz 12"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv12",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:method/actor-critic",
+   "type": "Method",
+   "label": {
+    "ko": "행동자·평가자",
+    "en": "Actor-critic"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv13",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "평가자가 보통 점수를 어림하고 행동자는 보통보다 나은 만큼만 반영해 배우는 방법."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:limitation/ch13",
+   "type": "Limitation",
+   "label": {
+    "ko": "평가자의 어림이 틀리면 행동자도 잘못 배웁니다",
+    "en": "Limitation of chapter 13"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv13",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:simulation/p1-lv13",
+   "type": "Simulation",
+   "label": {
+    "ko": "13장 실험 패널",
+    "en": "Chapter 13 interactive panel"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv13",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:quiz/p1-lv13-1",
+   "type": "QuizItem",
+   "label": {
+    "ko": "평가자 어림이 7점, 받은 점수가 6점이면 이점 A는?",
+    "en": "Quiz 13"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv13",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:concept/admissible-heuristic",
+   "type": "Concept",
+   "label": {
+    "ko": "부풀리지 않은 어림",
+    "en": "Admissible heuristic"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv4",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "남은 비용 어림이 실제 남은 비용보다 크지 않아야 한다는 조건."
+   }
+  },
+  {
+   "id": "lab:concept/mixed-strategy",
+   "type": "Concept",
+   "label": {
+    "ko": "혼합 전략",
+    "en": "Mixed strategy"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv5",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "행동을 확률로 섞어 고르는 전략. 순수 전략 균형이 없을 때의 균형."
+   }
+  },
+  {
+   "id": "lab:concept/markov-property",
+   "type": "Assumption",
+   "label": {
+    "ko": "마르코프 가정",
+    "en": "Markov property"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv6",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "다음 상태는 지금 상태와 행동만 보고 정해진다는 가정."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:concept/discount-factor",
+   "type": "Concept",
+   "label": {
+    "ko": "할인율 γ",
+    "en": "Discount factor"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv7",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "늦게 받는 보상을 깎는 0 이상 1 미만의 수."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:concept/policy",
+   "type": "Concept",
+   "label": {
+    "ko": "정책 π",
+    "en": "Policy"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv8",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "어느 상태에서 무엇을 할지 정한 규칙."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:concept/advantage",
+   "type": "Concept",
+   "label": {
+    "ko": "이점 A",
+    "en": "Advantage"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv13",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "받은 점수에서 평가자의 보통 점수 어림을 뺀 값."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:concept/td-target",
+   "type": "Concept",
+   "label": {
+    "ko": "시간차 목표",
+    "en": "TD target"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv10",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "바로 받는 보상과 다음 상태 가치 어림을 더한 목표값."
+   },
+   "family": "rl"
+  },
+  {
+   "id": "lab:term/temperature",
+   "type": "Term",
+   "label": {
+    "ko": "온도",
+    "en": "Temperature"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv11",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "점수를 나누어 고르기를 날카롭게 또는 고르게 하는 챗봇 설정값."
+   },
+   "family": "language"
+  },
+  {
+   "id": "lab:term/rlhf",
+   "type": "Term",
+   "label": {
+    "ko": "사람 피드백 강화학습",
+    "en": "RLHF"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv12",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:term/ppo",
+   "type": "Term",
+   "label": {
+    "ko": "PPO",
+    "en": "Proximal policy optimization"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv13",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:term/grpo",
+   "type": "Term",
+   "label": {
+    "ko": "GRPO",
+    "en": "Group relative policy optimization"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv13",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "family": "rl"
+  },
+  {
+   "id": "lab:concept/llm-output-softmax",
+   "type": "Analogy",
+   "label": {
+    "ko": "LLM 출력층과 같은 모양",
+    "en": "LLM output layer as softmax policy"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv11",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "definition": {
+    "ko": "LLM이 다음 낱말을 고르는 마지막 층이 소프트맥스 정책과 같은 모양이라는 대응."
+   },
+   "family": "language"
+  },
+  {
+   "id": "lab:simulation/p1-duel",
+   "type": "Simulation",
+   "label": {
+    "ko": "대결: 평가자 없음 vs 박사 평가자",
+    "en": "Duel: REINFORCE vs actor-critic"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#duel",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:metric/rounds-to-90",
+   "type": "Metric",
+   "label": {
+    "ko": "90%에 닿기까지 횟수",
+    "en": "Rounds to 90% preference"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#duel",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:question/rlhf-next",
+   "type": "Question",
+   "label": {
+    "ko": "하루봇의 두뇌를 실제 LLM으로 바꾸면(RLHF·PPO·GRPO)?",
+    "en": "Next: RLHF with a real LLM"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#outro",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:work/mltut-agentic",
+   "type": "Work",
+   "label": {
+    "ko": "Agentic AI Math Formulas",
+    "en": "Agentic AI Math Formulas"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#export",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:work/sutton2018reinforcement",
+   "type": "Work",
+   "label": {
+    "ko": "Reinforcement Learning: An Introduction",
+    "en": "Reinforcement Learning: An Introduction"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#export",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:work/russell2021artificial",
+   "type": "Work",
+   "label": {
+    "ko": "Artificial Intelligence: A Modern Approach",
+    "en": "Artificial Intelligence: A Modern Approach"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#export",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:work/hart1968formal",
+   "type": "Work",
+   "label": {
+    "ko": "A Formal Basis for the Heuristic Determination of Minimum Cost Paths",
+    "en": "A Formal Basis for the Heuristic Determination of Minimum Cost Paths"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#export",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:work/nash1950equilibrium",
+   "type": "Work",
+   "label": {
+    "ko": "Equilibrium Points in n-Person Games",
+    "en": "Equilibrium Points in n-Person Games"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#export",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:work/bellman1957dynamic",
+   "type": "Work",
+   "label": {
+    "ko": "Dynamic Programming",
+    "en": "Dynamic Programming"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#export",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:work/williams1992simple",
+   "type": "Work",
+   "label": {
+    "ko": "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning",
+    "en": "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#export",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "match": [],
+   "domain": [
+    "ai"
+   ]
+  },
+  {
+   "id": "lab:claim/orig-12-formulas",
+   "type": "Claim",
+   "label": {
+    "ko": "원자료 인포그래픽은 에이전트의 수학 공식 12개를 제시한다",
+    "en": "원자료 인포그래픽은 에이전트의 수학 공식 12개를 제시한다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#why",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "mltut-agentic",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch01-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "베이즈 정리의 정의는 표준 문헌을 따른다",
+    "en": "베이즈 정리의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv1",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "russell2021artificial",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch02-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "기대효용의 정의는 표준 문헌을 따른다",
+    "en": "기대효용의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv2",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "russell2021artificial",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch03-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "제약 최적화의 정의는 표준 문헌을 따른다",
+    "en": "제약 최적화의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv3",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "russell2021artificial",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch04-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "A* 탐색의 정의는 표준 문헌을 따른다",
+    "en": "A* 탐색의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv4",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "hart1968formal",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch05-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "내시 균형의 정의는 표준 문헌을 따른다",
+    "en": "내시 균형의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv5",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "nash1950equilibrium",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch06-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "상태 전이 확률의 정의는 표준 문헌을 따른다",
+    "en": "상태 전이 확률의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv6",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "sutton2018reinforcement",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch07-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "할인 누적 보상의 정의는 표준 문헌을 따른다",
+    "en": "할인 누적 보상의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv7",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "sutton2018reinforcement",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch08-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "상태가치 함수의 정의는 표준 문헌을 따른다",
+    "en": "상태가치 함수의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv8",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "sutton2018reinforcement",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch09-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "행동가치 함수의 정의는 표준 문헌을 따른다",
+    "en": "행동가치 함수의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv9",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "sutton2018reinforcement",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch10-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "벨만 방정식의 정의는 표준 문헌을 따른다",
+    "en": "벨만 방정식의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv10",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "bellman1957dynamic",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch11-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "소프트맥스 정책의 정의는 표준 문헌을 따른다",
+    "en": "소프트맥스 정책의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv11",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "sutton2018reinforcement",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch12-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "REINFORCE (정책 경사)의 정의는 표준 문헌을 따른다",
+    "en": "REINFORCE (정책 경사)의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv12",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "williams1992simple",
+     "loc": ""
+    }
+   ]
+  },
+  {
+   "id": "lab:claim/ch13-basis",
+   "type": "Claim",
+   "label": {
+    "ko": "행동자·평가자의 정의는 표준 문헌을 따른다",
+    "en": "행동자·평가자의 정의는 표준 문헌을 따른다"
+   },
+   "page": "agentic_ai_crash_guide",
+   "anchor": "#lv13",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "explained",
+   "match": [],
+   "domain": [
+    "ai"
+   ],
+   "source": [
+    {
+     "ref": "sutton2018reinforcement",
+     "loc": ""
+    }
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/bayes-theorem",
+   "p": "lab:broader",
+   "o": "lab:topic/probability-statistics",
+   "anchor": "#lv1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bayes-theorem",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch01",
+   "anchor": "#lv1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch01",
+   "p": "lab:broader",
+   "o": "lab:topic/probability-statistics",
+   "anchor": "#lv1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bayes-theorem",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv1",
+   "anchor": "#lv1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv1-1",
+   "p": "lab:assesses",
+   "o": "lab:concept/bayes-theorem",
+   "anchor": "#lv1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/expected-utility",
+   "p": "lab:broader",
+   "o": "lab:topic/probability-statistics",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bayes-theorem",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/expected-utility",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/expected-utility",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch02",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch02",
+   "p": "lab:broader",
+   "o": "lab:topic/probability-statistics",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/expected-utility",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv2",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv2-1",
+   "p": "lab:assesses",
+   "o": "lab:concept/expected-utility",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/constrained-optimization",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#lv3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/expected-utility",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/constrained-optimization",
+   "anchor": "#lv3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/constrained-optimization",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch03",
+   "anchor": "#lv3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch03",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#lv3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/constrained-optimization",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv3",
+   "anchor": "#lv3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv3-1",
+   "p": "lab:assesses",
+   "o": "lab:method/constrained-optimization",
+   "anchor": "#lv3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/constrained-optimization",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/a-star-search",
+   "anchor": "#lv4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/a-star-search",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch04",
+   "anchor": "#lv4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/a-star-search",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv4",
+   "anchor": "#lv4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv4-1",
+   "p": "lab:assesses",
+   "o": "lab:method/a-star-search",
+   "anchor": "#lv4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/a-star-search",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/nash-equilibrium",
+   "anchor": "#lv5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/nash-equilibrium",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch05",
+   "anchor": "#lv5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/nash-equilibrium",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv5",
+   "anchor": "#lv5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv5-1",
+   "p": "lab:assesses",
+   "o": "lab:concept/nash-equilibrium",
+   "anchor": "#lv5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-transition",
+   "p": "lab:broader",
+   "o": "lab:topic/mdp",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/nash-equilibrium",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/state-transition",
+   "anchor": "#lv6",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/state-transition",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch06",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch06",
+   "p": "lab:broader",
+   "o": "lab:topic/mdp",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-transition",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv6",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv6-1",
+   "p": "lab:assesses",
+   "o": "lab:concept/state-transition",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/discounted-return",
+   "p": "lab:broader",
+   "o": "lab:topic/reward",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-transition",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/discounted-return",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/discounted-return",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch07",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch07",
+   "p": "lab:broader",
+   "o": "lab:topic/reward",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/discounted-return",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv7",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv7-1",
+   "p": "lab:assesses",
+   "o": "lab:concept/discounted-return",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-value-function",
+   "p": "lab:broader",
+   "o": "lab:topic/value-function",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/discounted-return",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/state-value-function",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-value-function",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch08",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch08",
+   "p": "lab:broader",
+   "o": "lab:topic/value-function",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-value-function",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv8",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv8-1",
+   "p": "lab:assesses",
+   "o": "lab:concept/state-value-function",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/action-value-function",
+   "p": "lab:broader",
+   "o": "lab:topic/value-function",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/action-value-function",
+   "p": "lab:broader",
+   "o": "lab:topic/q-learning",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-value-function",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/action-value-function",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/action-value-function",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch09",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch09",
+   "p": "lab:broader",
+   "o": "lab:topic/value-function",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/action-value-function",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv9",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv9-1",
+   "p": "lab:assesses",
+   "o": "lab:concept/action-value-function",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bellman-equation",
+   "p": "lab:broader",
+   "o": "lab:topic/value-function",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bellman-equation",
+   "p": "lab:broader",
+   "o": "lab:topic/mdp",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/action-value-function",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/bellman-equation",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bellman-equation",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch10",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch10",
+   "p": "lab:broader",
+   "o": "lab:topic/value-function",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bellman-equation",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv10",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv10-1",
+   "p": "lab:assesses",
+   "o": "lab:concept/bellman-equation",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/softmax-policy",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/softmax-policy",
+   "p": "lab:broader",
+   "o": "lab:topic/exploration",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bellman-equation",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/softmax-policy",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/softmax-policy",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch11",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch11",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/softmax-policy",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv11",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv11-1",
+   "p": "lab:assesses",
+   "o": "lab:method/softmax-policy",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/reinforce",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/softmax-policy",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/reinforce",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/reinforce",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch12",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch12",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/reinforce",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv12",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv12-1",
+   "p": "lab:assesses",
+   "o": "lab:method/reinforce",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/actor-critic",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/actor-critic",
+   "p": "lab:broader",
+   "o": "lab:topic/value-function",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/reinforce",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/actor-critic",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/actor-critic",
+   "p": "lab:hasLimitation",
+   "o": "lab:limitation/ch13",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch13",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/actor-critic",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-lv13",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:quiz/p1-lv13-1",
+   "p": "lab:assesses",
+   "o": "lab:method/actor-critic",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/markov-property",
+   "p": "lab:broader",
+   "o": "lab:topic/mdp",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/discount-factor",
+   "p": "lab:broader",
+   "o": "lab:topic/reward",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/policy",
+   "p": "lab:broader",
+   "o": "lab:topic/mdp",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/advantage",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/td-target",
+   "p": "lab:broader",
+   "o": "lab:topic/value-function",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:term/temperature",
+   "p": "lab:broader",
+   "o": "lab:topic/autoregressive-generation",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:term/rlhf",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:term/ppo",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:term/grpo",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/llm-output-softmax",
+   "p": "lab:broader",
+   "o": "lab:topic/pretrained-lm",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch01",
+   "p": "lab:addressedBy",
+   "o": "lab:concept/expected-utility",
+   "anchor": "#lv1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch02",
+   "p": "lab:addressedBy",
+   "o": "lab:method/constrained-optimization",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch05",
+   "p": "lab:addressedBy",
+   "o": "lab:concept/mixed-strategy",
+   "anchor": "#lv5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch06",
+   "p": "lab:addressedBy",
+   "o": "lab:concept/bayes-theorem",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch07",
+   "p": "lab:addressedBy",
+   "o": "lab:concept/state-value-function",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch08",
+   "p": "lab:addressedBy",
+   "o": "lab:concept/bellman-equation",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch10",
+   "p": "lab:addressedBy",
+   "o": "lab:method/reinforce",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch12",
+   "p": "lab:addressedBy",
+   "o": "lab:method/actor-critic",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:limitation/ch13",
+   "p": "lab:addressedBy",
+   "o": "lab:term/ppo",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/admissible-heuristic",
+   "p": "lab:partOf",
+   "o": "lab:method/a-star-search",
+   "anchor": "#lv4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/mixed-strategy",
+   "p": "lab:partOf",
+   "o": "lab:concept/nash-equilibrium",
+   "anchor": "#lv5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/markov-property",
+   "p": "lab:partOf",
+   "o": "lab:concept/state-transition",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-transition",
+   "p": "lab:assumes",
+   "o": "lab:concept/markov-property",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/discount-factor",
+   "p": "lab:partOf",
+   "o": "lab:concept/discounted-return",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/policy",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:concept/state-value-function",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/policy",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/softmax-policy",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/advantage",
+   "p": "lab:partOf",
+   "o": "lab:method/actor-critic",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/td-target",
+   "p": "lab:derivedFrom",
+   "o": "lab:concept/bellman-equation",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/td-target",
+   "p": "lab:partOf",
+   "o": "lab:method/actor-critic",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:term/temperature",
+   "p": "lab:partOf",
+   "o": "lab:method/softmax-policy",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/llm-output-softmax",
+   "p": "lab:analogyOf",
+   "o": "lab:method/softmax-policy",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:term/rlhf",
+   "p": "lab:derivedFrom",
+   "o": "lab:method/reinforce",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:term/ppo",
+   "p": "lab:derivedFrom",
+   "o": "lab:method/actor-critic",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:term/grpo",
+   "p": "lab:contrastsWith",
+   "o": "lab:term/ppo",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/reinforce",
+   "p": "lab:contrastsWith",
+   "o": "lab:method/actor-critic",
+   "anchor": "#duel",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/state-value-function",
+   "p": "lab:relatedTo",
+   "o": "lab:concept/action-value-function",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/expected-utility",
+   "p": "lab:relatedTo",
+   "o": "lab:concept/action-value-function",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/discounted-return",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/reinforce",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/softmax-policy",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/reinforce",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:concept/bellman-equation",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/actor-critic",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/reinforce",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-duel",
+   "anchor": "#duel",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/actor-critic",
+   "p": "lab:demonstratedBy",
+   "o": "lab:simulation/p1-duel",
+   "anchor": "#duel",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/reinforce",
+   "p": "lab:evaluatedBy",
+   "o": "lab:metric/rounds-to-90",
+   "anchor": "#duel",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/actor-critic",
+   "p": "lab:evaluatedBy",
+   "o": "lab:metric/rounds-to-90",
+   "anchor": "#duel",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:method/actor-critic",
+   "p": "lab:raises",
+   "o": "lab:question/rlhf-next",
+   "anchor": "#outro",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/orig-12-formulas",
+   "p": "lab:supports",
+   "o": "lab:concept/bayes-theorem",
+   "anchor": "#why",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/orig-12-formulas",
+   "p": "lab:assertedIn",
+   "o": "lab:work/mltut-agentic",
+   "anchor": "#why",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch01-basis",
+   "p": "lab:supports",
+   "o": "lab:concept/bayes-theorem",
+   "anchor": "#lv1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch01-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/russell2021artificial",
+   "anchor": "#lv1",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch02-basis",
+   "p": "lab:supports",
+   "o": "lab:concept/expected-utility",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch02-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/russell2021artificial",
+   "anchor": "#lv2",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch03-basis",
+   "p": "lab:supports",
+   "o": "lab:method/constrained-optimization",
+   "anchor": "#lv3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch03-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/russell2021artificial",
+   "anchor": "#lv3",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch04-basis",
+   "p": "lab:supports",
+   "o": "lab:method/a-star-search",
+   "anchor": "#lv4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch04-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/hart1968formal",
+   "anchor": "#lv4",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch05-basis",
+   "p": "lab:supports",
+   "o": "lab:concept/nash-equilibrium",
+   "anchor": "#lv5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch05-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/nash1950equilibrium",
+   "anchor": "#lv5",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch06-basis",
+   "p": "lab:supports",
+   "o": "lab:concept/state-transition",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch06-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/sutton2018reinforcement",
+   "anchor": "#lv6",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch07-basis",
+   "p": "lab:supports",
+   "o": "lab:concept/discounted-return",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch07-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/sutton2018reinforcement",
+   "anchor": "#lv7",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch08-basis",
+   "p": "lab:supports",
+   "o": "lab:concept/state-value-function",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch08-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/sutton2018reinforcement",
+   "anchor": "#lv8",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch09-basis",
+   "p": "lab:supports",
+   "o": "lab:concept/action-value-function",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch09-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/sutton2018reinforcement",
+   "anchor": "#lv9",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch10-basis",
+   "p": "lab:supports",
+   "o": "lab:concept/bellman-equation",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch10-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/bellman1957dynamic",
+   "anchor": "#lv10",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch11-basis",
+   "p": "lab:supports",
+   "o": "lab:method/softmax-policy",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch11-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/sutton2018reinforcement",
+   "anchor": "#lv11",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch12-basis",
+   "p": "lab:supports",
+   "o": "lab:method/reinforce",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch12-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/williams1992simple",
+   "anchor": "#lv12",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch13-basis",
+   "p": "lab:supports",
+   "o": "lab:method/actor-critic",
+   "anchor": "#lv13",
+   "confidence": "high"
+  },
+  {
+   "s": "lab:claim/ch13-basis",
+   "p": "lab:assertedIn",
+   "o": "lab:work/sutton2018reinforcement",
+   "anchor": "#lv13",
+   "confidence": "high"
+  }
+ ]
+}

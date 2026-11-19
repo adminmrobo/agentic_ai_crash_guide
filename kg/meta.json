@@ -1,0 +1,43 @@
+{
+ "title": "AI 에이전트 공식 속성 가이드 — 하루봇을 만들며 배우는 13장",
+ "number": "1",
+ "series": "AI 에이전트 속성 가이드",
+ "about": [
+  "lab:concept/bayes-theorem",
+  "lab:concept/state-transition",
+  "lab:concept/bellman-equation",
+  "lab:method/softmax-policy",
+  "lab:method/actor-critic"
+ ],
+ "basedOn": [
+  "mltut-agentic"
+ ],
+ "educationalLevel": "입문",
+ "creator": [
+  {
+   "name": "안상선",
+   "role": "author",
+   "url": "https://adminmrobo.github.io/who_am_i/who_am_i.html"
+  }
+ ],
+ "contributor": [
+  {
+   "name": "AI 보조 제작",
+   "role": "assistant"
+  }
+ ],
+ "date": "2026-11-19",
+ "version": "1.0",
+ "language": [
+  "ko"
+ ],
+ "license": "",
+ "url": "https://adminmrobo.github.io/agentic_ai_crash_guide/",
+ "registry": "KG_00_registry 0.2",
+ "domain": [
+  "ai"
+ ],
+ "learningResourceType": "interactive explainer",
+ "seeAlso": "",
+ "suggestedCitation": "안상선 (2026). AI 에이전트 공식 속성 가이드 — 하루봇을 만들며 배우는 13장. AI 에이전트 속성 가이드 1, v1.0."
+}
