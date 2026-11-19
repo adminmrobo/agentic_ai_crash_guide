@@ -148,8 +148,18 @@ h3{font-size:1.08rem;margin:0 0 .5em}
 .refs{padding-left:22px;font-size:.94rem}
 .foot{border-top:1px solid var(--rule);padding:28px 0;color:var(--mute);font-size:.94rem}
 @media (max-width:860px){.easy,.pair,.two{grid-template-columns:1fr}.mapw{grid-template-columns:1fr}.maparrow{transform:rotate(90deg);justify-self:center}}
-@media (max-width:700px){.level{padding-block:64px}.level>.wrap.stack{gap:30px}section{padding:48px 0}h1{font-size:1.6rem}.thumb{grid-template-columns:1fr;justify-items:center;text-align:center}.thumb figcaption{justify-content:center}.bar-row{grid-template-columns:100px 1fr 56px}.fx{font-size:1.1rem}.topnav span a{margin-left:10px}}
+@media (max-width:700px){.level{padding-block:64px}.level>.wrap.stack{gap:30px}section{padding:48px 0}h1{font-size:1.6rem}.thumb{grid-template-columns:1fr;text-align:center}.thumb figcaption{justify-content:center}.bar-row{grid-template-columns:100px 1fr 56px}.fx{font-size:1.1rem}.topnav span a{margin-left:10px}}
 /* 지식 색인·꾸러미(kgx.js)는 어두운 화면용 — 두 섹션만 어두운 띠로 */
 #kg,#export{background:#16181f;color:#eceaf3}
 #kg *,#export *{overflow-wrap:normal;word-break:keep-all}
 #kg a,#export a{color:#5eead4}
+
+/* 그림 */
+.pic{background-size:cover;background-position:center;aspect-ratio:16/9;border-radius:12px;width:100%}
+.pic.front{aspect-ratio:400/450;max-width:300px;margin:0 auto;background-size:contain;background-repeat:no-repeat;border-radius:0}
+.pic.wide{box-shadow:0 2px 14px rgba(15,23,42,.12)}
+.thumb{grid-template-columns:minmax(0,1.4fr) 1fr}
+.thumb .pic{border-radius:10px}
+.tc .pic{border-radius:8px}
+.tocg{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+@media (max-width:700px){.thumb{grid-template-columns:1fr}.tocg{grid-template-columns:repeat(2,1fr)}}

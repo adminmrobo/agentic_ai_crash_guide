@@ -47,6 +47,21 @@ def harubot_svg(n, big=False):
 
 def esc(s): return html.escape(s, quote=True)
 
+import base64
+IMGDIR = ROOT / "assets" / "img"
+PICS = {"cover": "cover.webp", "front": "harubot_front.webp", **{f"ch{n:02d}": f"thumb_ch{n:02d}.webp" for n in range(1, 14)}}
+def pic_css():
+    out = []
+    for k, f in PICS.items():
+        b = base64.b64encode((IMGDIR / f).read_bytes()).decode()
+        out.append(f".im-{k}{{background-image:url(data:image/webp;base64,{b})}}")
+    return "\n".join(out)
+ALT = {"cover": "완성된 하루봇 앞에 연구실 식구 아홉 명이 모여 기뻐하는 장면",
+       "front": "아직 부품 자리 13곳이 비어 있는 하루봇"}
+def pic(k, cls="pic", alt=None):
+    a = alt or ALT.get(k, "")
+    return f'<div class="{cls} im-{k}" role="img" aria-label="{esc(a)}"></div>'
+
 def av(who, mood="smile"):
     name, _, col = D.CAST[who]
     short = {"dr": "박사", "haru": "하루", "fly": "초파리", "aba": "주판", "sia": "시아", "moa": "모아", "bot": "봇",
@@ -59,7 +74,8 @@ def say(who, mood, text):
 def thumb(n):
     k, part, who = D.ASSEMBLY[n]
     names = " · ".join(D.CAST[w][0] for w in who)
-    return (f'<figure class="thumb" data-img="thumb_ch{n:02d}">{harubot_svg(n)}'
+    alt = f"{names}이(가) 하루봇의 {n}번째 자리에 {part} 부품을 끼우는 장면"
+    return (f'<figure class="thumb">{pic(f"ch{n:02d}", "pic", alt)}'
             f'<figcaption><span class="chipn">{n}장</span> {icon(k,"ic sm")} {esc(part)} — <b>{esc(names)}</b>이(가) 끼웁니다</figcaption></figure>')
 
 # ---------- 섹션 ----------
@@ -81,7 +97,7 @@ def sec_why():
     ps = "".join(f"<p>{esc(x)}</p>" for x in D.WHY)
     return f'''<section id="why" class="band"><div class="wrap two"><div><h2>왜 이 가이드인가</h2>{ps}
 <p class="src">원자료: {esc(M["source"])}. 이 페이지의 그림·예제·실험은 새로 만들었습니다.</p></div>
-<div class="center">{harubot_svg(0, True)}<p class="cap">아직 비어 있는 하루봇. 13장을 지나며 부품 13개가 하나씩 끼워집니다.</p></div></div></section>'''
+<div class="center">{pic("front", "pic front")}<p class="cap">아직 비어 있는 하루봇. 13장을 지나며 부품 13개가 하나씩 끼워집니다.</p></div></div></section>'''
 
 def sec_map():
     cols = []
@@ -92,8 +108,8 @@ def sec_map():
 <p class="note">1부는 숫자가 주어졌을 때 판단하는 법, 2부는 직접 겪으며 숫자를 배우는 법입니다. 2부는 6장 말판에서 시작해 13장 행동자·평가자에서 한 바퀴를 닫습니다.</p></div></section>'''
 
 def sec_toc():
-    cards = "".join(f'<a class="tc" href="#lv{c["n"]}">{harubot_svg(c["n"])}<span><b>{c["n"]}장</b> {esc(c["title"].split(" — ")[0])}</span></a>' for c in D.CH)
-    return f'<section id="toc" class="band"><div class="wrap"><h2>목차 — 하루봇 조립 순서</h2><div class="tocg">{cards}<a class="tc" href="#duel">{harubot_svg(14)}<span><b>대결</b> 완성된 하루봇</span></a></div></div></section>'
+    cards = "".join(f'<a class="tc" href="#lv{c["n"]}">{pic(f"ch{c['n']:02d}", "pic", f"{c['n']}장 썸네일")}<span><b>{c["n"]}장</b> {esc(c["title"].split(" — ")[0])}</span></a>' for c in D.CH)
+    return f'<section id="toc" class="band"><div class="wrap"><h2>목차 — 하루봇 조립 순서</h2><div class="tocg">{cards}<a class="tc" href="#duel">{pic("cover")}<span><b>대결</b> 완성된 하루봇</span></a></div></div></section>'
 
 CHREF = {1: "russell2021artificial", 2: "russell2021artificial", 3: "russell2021artificial", 4: "hart1968formal", 5: "nash1950equilibrium",
          6: "sutton2018reinforcement", 7: "sutton2018reinforcement", 8: "sutton2018reinforcement", 9: "sutton2018reinforcement",
@@ -133,7 +149,7 @@ def sec_duel():
     rule = "".join(f"<li>{esc(x)}</li>" for x in d["rule"])
     judges = "".join(say(w, m, esc(t)) for w, m, t in d["judges"])
     return f'''<section id="duel" class="level band"><div class="wrap stack"><h2>{esc(d["title"])}</h2>
-<div class="center">{harubot_svg(14, True)}<p class="cap">13개 부품이 모두 끼워진 하루봇. 이제 하루의 말투를 누가 더 빨리 배우는지 겨룹니다.</p></div>
+<div class="center">{pic("cover", "pic wide")}<p class="cap">13개 부품이 모두 끼워진 하루봇. 이제 하루의 말투를 누가 더 빨리 배우는지 겨룹니다.</p></div>
 <ol class="rules">{rule}</ol><div class="dialog lvtalk">{judges}</div>
 <div class="panel" data-exp="duel" aria-label="대결 실험"><h3>대결 패널</h3></div>
 <p class="note">{esc(d["result"])}</p></div></section>'''
@@ -164,15 +180,15 @@ page = f'''<!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(M["title"])}</title><meta name="description" content="{esc(M["desc"])}">
 <meta property="og:title" content="{esc(M["title"])}"><meta property="og:description" content="{esc(M["desc"])}">
-<meta property="og:image" content="assets/img/og_cover.webp">
+<meta property="og:image" content="https://adminmrobo.github.io/agentic_ai_crash_guide/assets/img/og_cover.webp"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<style>{CSS}</style></head>
+<style>{CSS}\n{pic_css()}</style></head>
 <body><a id="top"></a>
 <nav class="topnav"><div class="wrap"><a href="#top">{esc(M["short"])}</a><span><a href="#toc">목차</a><a href="#duel">대결</a><a href="#summary">정리</a></span></div></nav>
-<header class="hero" id="hero" data-img="cover"><div class="wrap two"><div><p class="kicker">{esc(M["series"])} · {M["number"]}</p>
+<header class="hero" id="hero"><div class="wrap two"><div><p class="kicker">{esc(M["series"])} · {M["number"]}</p>
 <h1>AI 에이전트 공식 속성 가이드<br><small>하루봇을 만들며 배우는 13장</small></h1><p class="lead">{esc(M["desc"])}</p>
 <div class="dialog">{say("haru","smile","저를 닮은 챗봇을 만든대요. 이름은 하루봇!")}{say("dr","proud","부품 13개를 하나씩 끼우면서, 부품마다 들어 있는 수식을 같이 익혀 보자.")}</div></div>
-<div class="center">{harubot_svg(14, True)}</div></div></header>
+<div class="center">{pic("cover", "pic wide")}</div></div></header>
 {sec_plain()}{sec_cast()}{sec_why()}{sec_map()}{sec_toc()}
 {"".join(sec_level(c) for c in D.CH)}
 {sec_duel()}{sec_summary()}{sec_outro()}{sec_refs()}

@@ -8,10 +8,11 @@
 ## 파일
 - index.html — 완성 페이지(단일 파일, 지식 색인·꾸러미 포함)
 - IMG_PROMPTS.md — 하루봇 설정 그림·표지·장별 썸네일 13장 프롬프트
+- assets/img/ — 페이지용 그림(표지 1600×900, 썸네일 720×405 WebP, 공유 미리보기 og_cover.webp)과 하루봇 설정 그림 원본(harubot_sheet.png)
 - src/ — 문구 데이터(data_ko.py), 빌드(build.py), 실험 엔진(engine.js), 스타일, 검산(verify.py, duel.py)
 - kg/ — kg.json · refs.json · meta.json · check_report.md · retrofit_log.md
 
 ## 고치는 법
-src/data_ko.py에서 문구를 고친 뒤 python3 build.py → ai-lab-retrofit의 retrofit.py로 꼬리표를 다시 답니다.
+src/data_ko.py에서 문구를 고친 뒤 python3 build.py (그림은 assets/img/에서 읽어 페이지에 넣음) → ai-lab-retrofit의 retrofit.py로 꼬리표를 다시 답니다.
 
 글 · 안상선 (https://adminmrobo.github.io/who_am_i/who_am_i.html) · (주)M-Robo 대표
