@@ -7,8 +7,9 @@
 
 ## 파일
 - index.html — 완성 페이지(단일 파일, 지식 색인·꾸러미 포함)
-- IMG_PROMPTS.md — 하루봇 설정 그림·표지·장별 썸네일 13장 프롬프트
+- IMG_PROMPTS.md — 그림 15장 프롬프트 v2(16비트 SNES 픽셀 아트, 정본 캐릭터 참고 그림 지정)
 - assets/img/ — 페이지용 그림(표지 1600×900, 썸네일 720×405 WebP, 공유 미리보기 og_cover.webp)과 하루봇 설정 그림 원본(harubot_sheet.png)
+- assets/avatar/ — 대화칸 캐릭터 얼굴(fruitfly-lab-expressions 정본 픽셀 표정에서 잘라 128px로 줄임)
 - src/ — 문구 데이터(data_ko.py), 빌드(build.py), 실험 엔진(engine.js), 스타일, 검산(verify.py, duel.py)
 - kg/ — kg.json · refs.json · meta.json · check_report.md · retrofit_log.md
 

@@ -62,11 +62,18 @@ def pic(k, cls="pic", alt=None):
     a = alt or ALT.get(k, "")
     return f'<div class="{cls} im-{k}" role="img" aria-label="{esc(a)}"></div>'
 
+AV_USED = set()
 def av(who, mood="smile"):
     name, _, col = D.CAST[who]
-    short = {"dr": "박사", "haru": "하루", "fly": "초파리", "aba": "주판", "sia": "시아", "moa": "모아", "bot": "봇",
-             "in1": "인턴1", "in2": "인턴2", "x1": "X1", "x2": "X2", "x3": "X3"}[who]
-    return f'<span class="av" data-who="{who}" data-mood="{mood}" style="--c:{col}" aria-hidden="true">{short}</span>'
+    AV_USED.add((who, mood))
+    return f'<span class="av av-{who}-{mood}" data-who="{who}" data-mood="{mood}" role="img" aria-label="{esc(name)}"></span>'
+
+def av_css():
+    out = []
+    for who, mood in sorted(AV_USED):
+        b = base64.b64encode((ROOT / "assets" / "avatar" / f"{who}_{mood}.webp").read_bytes()).decode()
+        out.append(f".av-{who}-{mood}{{background-image:url(data:image/webp;base64,{b})}}")
+    return "\n".join(out)
 
 def say(who, mood, text):
     return f'<div class="say" data-who="{who}">{av(who, mood)}<div><b>{esc(D.CAST[who][0])}</b> {text}</div></div>'
@@ -89,7 +96,7 @@ def sec_plain():
 <details class="abbr"><summary>영어 약어 풀이</summary><dl>{ab}</dl></details></div></section>'''
 
 def sec_cast():
-    order = ["dr", "haru", "fly", "aba", "bot", "sia", "moa", "in1", "in2", "x1", "x2", "x3"]
+    order = ["dr", "haru", "fly", "aba", "bot", "sia", "moa", "x1", "x2", "x3"]
     cards = "".join(f'<li>{av(k)}<div><b>{esc(D.CAST[k][0])}</b><span>{esc(D.CAST[k][1])}</span></div></li>' for k in order)
     return f'<section id="cast"><div class="wrap"><h2>등장인물</h2><ul class="cast">{cards}</ul></div></section>'
 
@@ -182,7 +189,7 @@ page = f'''<!DOCTYPE html>
 <meta property="og:title" content="{esc(M["title"])}"><meta property="og:description" content="{esc(M["desc"])}">
 <meta property="og:image" content="https://adminmrobo.github.io/agentic_ai_crash_guide/assets/img/og_cover.webp"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<style>{CSS}\n{pic_css()}</style></head>
+<style>{CSS}\n{pic_css()}\n/*AVCSS*/</style></head>
 <body><a id="top"></a>
 <nav class="topnav"><div class="wrap"><a href="#top">{esc(M["short"])}</a><span><a href="#toc">목차</a><a href="#duel">대결</a><a href="#summary">정리</a></span></div></nav>
 <header class="hero" id="hero"><div class="wrap two"><div><p class="kicker">{esc(M["series"])} · {M["number"]}</p>
@@ -196,6 +203,7 @@ page = f'''<!DOCTYPE html>
 <p class="src">원자료: {esc(M["source"])}. 공식은 이 페이지에서 바로잡아 다시 썼습니다.</p></div></footer>
 <script>{JS}</script></body></html>'''
 
+page = page.replace("/*AVCSS*/", av_css())
 out = ROOT / "dist" / "index.html"
 out.parent.mkdir(exist_ok=True)
 out.write_text(page, encoding="utf-8")
