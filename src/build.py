@@ -81,13 +81,21 @@ def av_css():
 def say(who, mood, text):
     return f'<div class="say" data-who="{who}">{av(who, mood)}<div><b>{esc(D.CAST[who][0])}</b> {text}</div></div>'
 
+IMG_WH = {"cover": (1600, 900), "harubot_sheet": (1600, 900)}
+def pic(name, alt, cls="pic", eager=False):
+    """assets/img/의 픽셀 그림(WebP). 페이지는 저장소 루트의 index.html 기준 경로를 씁니다."""
+    w, h = IMG_WH.get(name, (960, 540))
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    return (f'<img class="{cls}" src="assets/img/{name}.webp" width="{w}" height="{h}" {load} decoding="async" '
+            f'alt="{html.escape(alt, quote=True)}">')
+
 def thumb(n):
     k, part, who = D.ASSEMBLY[n]
     name = IT.ITEMS[n][1]
     names = " · ".join(D.CAST[w][0] for w in who)
     faces = "".join(av(w, "proud") for w in who)
     lab = f"{n}장 장면: {names}이(가) 하루봇의 {n}번째 자리에 아이템 '{name}'을 장착하려는 모습"
-    return (f'<figure class="thumb"><div class="th-stage">{harubot_svg(n, "spark", "mid", lab)}</div>'
+    return (f'<figure class="thumb"><div class="th-stage">{pic(f"thumb_ch{n:02d}", lab)}</div>'
             f'<figcaption><span class="chipn">{n}장 아이템</span><span class="th-it">{icon(n,"ic")}<b>{esc(name)}</b></span>'
             f'<span class="th-who">{faces}<span><b>{esc(names)}</b>이(가) 하루봇에 장착을 도와요</span></span>'
             f'<span class="th-fx">효과 — {esc(IT.ITEMS[n][2])}</span></figcaption></figure>')
@@ -112,7 +120,9 @@ def sec_plain():
 def sec_cast():
     order = ["dr", "haru", "fly", "aba", "bot", "sia", "moa", "x1", "x2", "x3"]
     cards = "".join(f'<li>{av(k)}<div><b>{esc(D.CAST[k][0])}</b><span>{esc(D.CAST[k][1])}</span></div></li>' for k in order)
-    return f'<section id="cast"><div class="wrap"><h2>등장인물</h2><ul class="cast">{cards}</ul></div></section>'
+    return (f'<section id="cast"><div class="wrap"><h2>등장인물</h2><ul class="cast">{cards}</ul>'
+            f'<figure class="sheet">{pic("harubot_sheet", "하루봇 설정 그림: 본체 없이 하루의 얼굴이 나오는 주황 테두리 큰 모니터(앞·옆 모습)와 그 아래 비어 있는 아이템 창 13자리")}'
+            f'<figcaption>하루봇 설정 그림 — 본체 없이 큰 모니터 하나, 그 아래 아이템 창(위 7자리 · 아래 6자리)</figcaption></figure></div></section>')
 
 def sec_why():
     ps = "".join(f"<p>{esc(x)}</p>" for x in D.WHY)
@@ -173,7 +183,7 @@ def sec_duel():
     rule = "".join(f"<li>{esc(x)}</li>" for x in d["rule"])
     judges = "".join(say(w, m, esc(t)) for w, m, t in d["judges"])
     return f'''<section id="duel" class="level band"><div class="wrap stack"><h2>{esc(d["title"])}</h2>
-<div class="center">{harubot_svg("full", "proud", "big", "아이템 13개를 모두 장착한 하루봇")}<p class="cap">아이템 13개를 모두 장착한 하루봇(Lv.14). 이제 하루의 말투를 누가 더 빨리 배우는지 겨룹니다.</p></div>
+<div class="center">{pic("cover", "아이템 13개를 모두 장착한 하루봇 앞에 박사·하루·초파리 연구원·주판봇·시아·모아·X1~X3가 모인 장면", "pic wide")}<p class="cap">아이템 13개를 모두 장착한 하루봇(Lv.MAX). 이제 하루의 말투를 누가 더 빨리 배우는지 겨룹니다.</p></div>
 <ol class="rules">{rule}</ol><div class="dialog lvtalk">{judges}</div>
 <div class="panel" data-exp="duel" aria-label="대결 실험"><h3>대결 패널</h3></div>
 <p class="note">{esc(d["result"])}</p></div></section>'''
@@ -224,7 +234,7 @@ page = f'''<!DOCTYPE html>
 <header class="hero" id="hero"><div class="wrap two"><div><p class="kicker">{esc(M["series"])} · {M["number"]}</p>
 <h1>AI 에이전트 공식 속성 가이드<br><small>하루봇을 만들며 배우는 13장</small></h1><p class="lead">{esc(M["desc"])}</p>
 <div class="dialog">{say("haru","smile","저를 닮은 챗봇을 만든대요. 이름은 하루봇!")}{say("dr","proud","장마다 아이템을 하나씩 장착하면서, 아이템마다 들어 있는 수식을 같이 익혀 보자. 장착할 때마다 하루봇의 레벨이 올라.")}</div></div>
-<div class="center hero-bot">{harubot_svg("live", "smile", "hb-hero")}<p class="lvline"><b class="hb-lv">Lv.1</b> · 아이템 <b class="hb-cnt">0</b>/13</p></div></div></header>
+<div class="center hero-bot">{pic("cover", "표지: 하루의 얼굴이 나오는 큰 모니터 하루봇과 그 아래 아이템 창, 둘레에 모인 연구실 식구들", "pic wide", True)}</div></div></header>
 {sec_plain()}{sec_cast()}{sec_why()}{sec_map()}{sec_toc()}
 {"".join(sec_level(c) for c in D.CH)}
 {sec_duel()}{sec_summary()}{sec_outro()}{sec_refs()}

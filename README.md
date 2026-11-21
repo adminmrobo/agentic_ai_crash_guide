@@ -8,7 +8,7 @@
 ## 파일
 - index.html — 완성 페이지(단일 파일, 지식 색인·꾸러미 포함)
 - IMG_PROMPTS.md — 일러스트 픽셀 그림이 필요할 때 쓰는 프롬프트 v4(16비트 SNES 픽셀 아트, 모니터만 있는 하루봇, RPG 아이템 장착)
-- assets/img/og_cover.webp — 공유 미리보기(코드로 그린 픽셀 하루봇). v1 일반 일러스트 그림은 픽셀 방침 위반으로 삭제(2026-11-21)
+- assets/img/ — v4 픽셀 그림(2026-11-22): 표지 cover.webp(1600×900), 하루봇 설정 그림 harubot_sheet.webp(1600×900), 장별 thumb_ch01~13.webp(960×540), 공유 미리보기 og_cover.webp(1200×630). v1 일반 일러스트는 픽셀 방침 위반으로 삭제(2026-11-21)
 - assets/avatar/ — 대화칸 캐릭터 얼굴(fruitfly-lab-expressions 정본 픽셀 표정에서 잘라 128px로 줄임)
 - src/ — 문구 데이터(data_ko.py), 아이템 데이터·픽셀 스프라이트(items.py), 빌드(build.py), 실험 엔진(engine.js), 아이템 장착 엔진(items.js), 스타일, 검산(verify.py, duel.py)
 
