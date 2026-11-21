@@ -121,9 +121,9 @@ X[5]=function(p){
    var td=h("td",{class:"cell"+(q.me&&q.you?" ne":"")+(sel===a+b?" sel":""),tabindex:"0",onclick:function(){sel=a+b;draw()}},
     [h("span",{class:"pay",html:(q.me?"<u>":"")+u[0]+(q.me?"</u>":"")+" , "+(q.you?"<u>":"")+u[1]+(q.you?"</u>":"")})]);tr.appendChild(td)});t.appendChild(tr)});
   tb.appendChild(t);r.innerHTML="";var ne=Object.keys(g).filter(function(k){var q=br(g,k[0],k[1]);return q.me&&q.you});
-  r.append(h("p",{class:"note",text:"칸의 숫자는 (하루봇 점수, 주판봇 점수). 밑줄은 '상대 선택을 볼 때 그쪽의 최선'입니다."}));
+  r.append(h("p",{class:"note",text:"표 안의 숫자는 (하루봇 점수, 주판봇 점수). 밑줄은 '상대 선택을 볼 때 그쪽의 최선'입니다."}));
   if(sel){var a=sel[0],b=sel[1],oa=a==="W"?"C":"W",ob=b==="W"?"C":"W";
-   r.append(h("p",{class:"note",text:"이 칸에서 하루봇이 혼자 "+L[oa]+"(으)로 바꾸면 "+g[a+b][0]+" → "+g[oa+b][0]+"점, 주판봇이 혼자 "+L[ob]+"(으)로 바꾸면 "+g[a+b][1]+" → "+g[a+ob][1]+"점."}))}
+   r.append(h("p",{class:"note",text:"이 자리에서 하루봇이 혼자 "+L[oa]+"(으)로 바꾸면 "+g[a+b][0]+" → "+g[oa+b][0]+"점, 주판봇이 혼자 "+L[ob]+"(으)로 바꾸면 "+g[a+b][1]+" → "+g[a+ob][1]+"점."}))}
   r.append(ne.length?verdict("순수 전략 균형: <b>"+ne.map(function(k){return "하루봇 "+L[k[0]]+" · 주판봇 "+L[k[1]]}).join(", ")+"</b>",true)
    :verdict("순수 전략 균형이 <b>없습니다</b>. 둘 다 반반씩 섞어 고르는 것(혼합 전략)이 균형입니다.",false))}
  draw()};

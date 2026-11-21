@@ -4,63 +4,71 @@ import html, json, re, pathlib
 import data_ko as D
 
 ROOT = pathlib.Path(__file__).parent
+ASSETS = ROOT.parent / "assets"
 M = D.META
 
-# ---------- 부품 아이콘 (원본 그림, 48×48) ----------
-ICON = {
- "magnifier": '<circle cx="20" cy="20" r="11"/><line x1="28" y1="28" x2="40" y2="40"/>',
- "scale": '<line x1="24" y1="8" x2="24" y2="40"/><line x1="10" y1="14" x2="38" y2="14"/><path d="M10 14 L5 26 H15 Z"/><path d="M38 14 L33 26 H43 Z"/><line x1="16" y1="40" x2="32" y2="40"/>',
- "hourglass": '<path d="M13 7 H35 M13 41 H35 M15 7 C15 18 33 20 33 24 C33 28 15 30 15 41 M33 7 C33 18 15 20 15 24 C15 28 33 30 33 41"/>',
- "compass": '<circle cx="24" cy="24" r="16"/><path d="M24 12 L28 24 L24 36 L20 24 Z"/>',
- "plug": '<rect x="14" y="20" width="20" height="14" rx="3"/><line x1="19" y1="20" x2="19" y2="10"/><line x1="29" y1="20" x2="29" y2="10"/><path d="M24 34 V40 M24 40 H14 M24 40 H34"/>',
- "board": '<rect x="8" y="8" width="32" height="32" rx="3"/><path d="M8 19 H40 M8 29 H40 M19 8 V40 M29 8 V40"/><path d="M13 13 L24 24 L35 35" class="hl"/>',
- "coins": '<ellipse cx="24" cy="38" rx="14" ry="4"/><ellipse cx="24" cy="30" rx="11" ry="3.5"/><ellipse cx="24" cy="23" rx="8" ry="3"/><ellipse cx="24" cy="17" rx="5" ry="2.5"/>',
- "gauge": '<path d="M8 32 A16 16 0 0 1 40 32"/><line x1="24" y1="32" x2="33" y2="20"/><circle cx="24" cy="32" r="2.5"/>',
- "stars": '<path d="M24 8 L28 18 L39 18 L30 25 L33 36 L24 29 L15 36 L18 25 L9 18 L20 18 Z"/>',
- "mirror": '<path d="M12 10 V38 M36 10 V38"/><path d="M16 18 C22 14 26 14 32 18" /><path d="M32 30 C26 34 22 34 16 30"/><path d="M29 15 L32 18 L28 20 M19 33 L16 30 L20 28"/>',
- "speaker": '<path d="M8 19 H15 L24 11 V37 L15 29 H8 Z"/><path d="M30 18 C33 21 33 27 30 30 M34 14 C39 19 39 29 34 34"/>',
- "sticker": '<rect x="10" y="8" width="28" height="32" rx="4"/><path d="M17 24 L22 29 L31 18"/>',
- "monocle": '<circle cx="21" cy="21" r="12"/><circle cx="21" cy="21" r="7"/><path d="M30 30 C34 36 36 40 40 42"/>',
-}
-def icon(k, cls="ic"):
-    return f'<svg class="{cls}" viewBox="0 0 48 48" aria-hidden="true">{ICON[k]}</svg>'
+# ---------- RPG 아이템(픽셀 스프라이트) ----------
+import items as IT
+def icon(n, cls="ic"):
+    """장 번호 n의 아이템 픽셀 스프라이트."""
+    return f'<svg class="spr {cls}" viewBox="0 0 12 12" aria-hidden="true"><use href="#it-{n}"/></svg>'
 
-# ---------- 하루봇 조립 그림(자리표시) ----------
-SLOTS = [(52+i*44, 132) for i in range(5)] + [(74+i*44, 176) for i in range(4)] + [(74+i*44, 220) for i in range(4)]
-def harubot_svg(n, big=False):
-    """n장까지 조립된 하루봇. n=0이면 빈 몸체, 14면 완성."""
-    parts = []
-    parts.append('<rect x="30" y="96" width="240" height="160" rx="26" class="hb-body"/>'
-                 '<path d="M80 256 L64 286 L118 256 Z" class="hb-body"/>'
-                 '<rect x="80" y="20" width="140" height="66" rx="18" class="hb-head"/>'
-                 '<circle cx="124" cy="52" r="8" class="hb-eye"/><circle cx="176" cy="52" r="8" class="hb-eye"/>'
-                 '<path d="M132 70 Q150 80 168 70" class="hb-mouth"/>'
-                 '<line x1="150" y1="20" x2="150" y2="6" class="hb-line"/><circle cx="150" cy="5" r="5" class="hb-ant"/>')
+# ---------- 하루봇: 하루가 나오는 큰 모니터 일체형 PC (바퀴로 움직임) ----------
+def _px(x, y, w, h, fill, extra=""):
+    return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}"{extra}/>'
+def _box(x, y, w, h, line, fill):
+    """모서리를 한 픽셀 깎은 픽셀 상자(외곽선 1px)."""
+    return (_px(x+1, y, w-2, h, line) + _px(x, y+1, w, h-2, line)
+            + _px(x+1, y+1, w-2, h-2, fill))
+SLOTS = [(8+i*10, 50) for i in range(5)] + [(13+i*10, 59) for i in range(4)] + [(13+i*10, 68) for i in range(4)]
+FACES = ["smile", "spark", "proud", "think", "shock", "sad", "doubt"]
+def harubot_svg(mode="live", mood="smile", cls="", label=None):
+    """mode: 'live'(장착 상태를 따라감) · 'full'(13개 모두) · 정수 n(n장 장면: 1~n-1 장착, n 장착 중)."""
+    K, O, OL, CR = "#2b2118", "#ea580c", "#fb923c", "#fff7ed"
+    p = []
+    # 바퀴(이동형 받침)
+    for wx in (9, 47):
+        p.append(_px(wx+3, 78, 2, 2, "#475569") + _box(wx, 80, 8, 6, K, "#475569") + _px(wx+3, 82, 2, 2, "#cbd5e1"))
+    # 받침(아이템 장착대)
+    p.append(_box(5, 46, 54, 33, K, CR) + _px(6, 47, 52, 1, OL) + _px(6, 77, 52, 1, "#f2d7b6"))
+    # 목
+    p.append(_px(27, 42, 10, 5, K) + _px(28, 42, 8, 5, "#94a3b8") + _px(28, 44, 8, 1, "#64748b"))
+    # 모니터
+    p.append(_box(2, 1, 60, 42, K, O) + _px(3, 2, 58, 1, OL) + _px(3, 3, 1, 38, OL))
+    p.append(_px(31, 2, 2, 2, K) + _px(31, 2, 1, 1, "#64748b"))  # 카메라
+    p.append(_px(53, 38, 3, 2, "#ec4899", ' class="hb-led"') + _px(53, 38, 1, 1, "#f9a8d4"))  # 전원 불빛
+    p.append(_px(7, 5, 50, 32, K) + _px(8, 6, 48, 30, "#cfd8e3"))
+    p.append(f'<svg x="8" y="6" width="48" height="30" viewBox="0 5.5 48 30" preserveAspectRatio="xMidYMid slice">'
+             f'<use class="hb-face" href="#face-{mood}" width="48" height="48"/></svg>')
+    p.append(_px(8, 6, 48, 1, "rgba(255,255,255,.35)"))
     for i, (x, y) in enumerate(SLOTS, start=1):
-        k = D.ASSEMBLY[i][0]
-        cls = "slot done" if i < n or n == 14 else ("slot now" if i == n else "slot")
-        parts.append(f'<g class="{cls}"><rect x="{x-18}" y="{y-18}" width="36" height="36" rx="8"/>'
-                     + (f'<g transform="translate({x-14},{y-14}) scale(0.5833)">{ICON[k]}</g>' if (i <= n or n == 14) else "")
-                     + '</g>')
-    vb = "0 0 300 300"
-    return f'<svg class="harubot{" big" if big else ""}" viewBox="{vb}" role="img" aria-label="하루봇 조립 {min(n,13)}/13">{"".join(parts)}</svg>'
+        if mode == "full":
+            st = "done"
+        elif isinstance(mode, int):
+            st = "done" if i < mode else ("now" if i == mode else "")
+        else:
+            st = ""
+        p.append(f'<g class="slot {st}" data-i="{i}">'
+                 f'<rect class="sl-bg" x="{x}" y="{y}" width="8" height="8"/>'
+                 f'<use class="sl-it" href="#it-{i}" x="{x+1}" y="{y+1}" width="6" height="6"/></g>')
+    data = f' data-mode="{mode}"'
+    lab = label or ("하루봇 — 하루의 얼굴이 나오는 큰 모니터 일체형 PC. 바퀴로 움직이고, 받침의 13자리에 아이템을 장착합니다")
+    return (f'<svg class="harubot {cls}" viewBox="0 0 64 87" shape-rendering="crispEdges"{data} role="img" '
+            f'aria-label="{html.escape(lab, quote=True)}">{"".join(p)}</svg>')
+
+def face_defs():
+    out = []
+    for m in FACES:
+        b = base64.b64encode((ASSETS / "avatar" / f"haru_{m}.webp").read_bytes()).decode()
+        out.append(f'<image id="face-{m}" width="48" height="48" preserveAspectRatio="xMidYMid slice" '
+                   f'style="image-rendering:pixelated" href="data:image/webp;base64,{b}"/>')
+    for n, it in IT.ITEMS.items():
+        out.append(f'<symbol id="it-{n}" viewBox="0 0 12 12" shape-rendering="crispEdges">{IT.sprite_rects(it[4])}</symbol>')
+    return f'<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>{"".join(out)}</defs></svg>'
 
 def esc(s): return html.escape(s, quote=True)
 
 import base64
-IMGDIR = ROOT / "assets" / "img"
-PICS = {"cover": "cover.webp", "front": "harubot_front.webp", **{f"ch{n:02d}": f"thumb_ch{n:02d}.webp" for n in range(1, 14)}}
-def pic_css():
-    out = []
-    for k, f in PICS.items():
-        b = base64.b64encode((IMGDIR / f).read_bytes()).decode()
-        out.append(f".im-{k}{{background-image:url(data:image/webp;base64,{b})}}")
-    return "\n".join(out)
-ALT = {"cover": "완성된 하루봇 앞에 연구실 식구 아홉 명이 모여 기뻐하는 장면",
-       "front": "아직 부품 자리 13곳이 비어 있는 하루봇"}
-def pic(k, cls="pic", alt=None):
-    a = alt or ALT.get(k, "")
-    return f'<div class="{cls} im-{k}" role="img" aria-label="{esc(a)}"></div>'
 
 AV_USED = set()
 def av(who, mood="smile"):
@@ -71,7 +79,7 @@ def av(who, mood="smile"):
 def av_css():
     out = []
     for who, mood in sorted(AV_USED):
-        b = base64.b64encode((ROOT / "assets" / "avatar" / f"{who}_{mood}.webp").read_bytes()).decode()
+        b = base64.b64encode((ASSETS / "avatar" / f"{who}_{mood}.webp").read_bytes()).decode()
         out.append(f".av-{who}-{mood}{{background-image:url(data:image/webp;base64,{b})}}")
     return "\n".join(out)
 
@@ -80,10 +88,21 @@ def say(who, mood, text):
 
 def thumb(n):
     k, part, who = D.ASSEMBLY[n]
+    name = IT.ITEMS[n][1]
     names = " · ".join(D.CAST[w][0] for w in who)
-    alt = f"{names}이(가) 하루봇의 {n}번째 자리에 {part} 부품을 끼우는 장면"
-    return (f'<figure class="thumb">{pic(f"ch{n:02d}", "pic", alt)}'
-            f'<figcaption><span class="chipn">{n}장</span> {icon(k,"ic sm")} {esc(part)} — <b>{esc(names)}</b>이(가) 끼웁니다</figcaption></figure>')
+    faces = "".join(av(w, "proud") for w in who)
+    lab = f"{n}장 장면: {names}이(가) 하루봇의 {n}번째 자리에 아이템 '{name}'을 장착하려는 모습"
+    return (f'<figure class="thumb"><div class="th-stage">{harubot_svg(n, "spark", "mid", lab)}</div>'
+            f'<figcaption><span class="chipn">{n}장 아이템</span><span class="th-it">{icon(n,"ic")}<b>{esc(name)}</b></span>'
+            f'<span class="th-who">{faces}<span><b>{esc(names)}</b>이(가) 하루봇에 장착을 도와요</span></span>'
+            f'<span class="th-fx">효과 — {esc(IT.ITEMS[n][2])}</span></figcaption></figure>')
+
+def item_card(n):
+    key, name, func, can, _ = IT.ITEMS[n]
+    return (f'<div class="itemcard" data-item="{n}"><div class="ic-spr">{icon(n,"big")}</div>'
+            f'<div class="ic-txt"><p class="ic-k">{n}장 보상 아이템</p><p class="ic-n">{esc(name)}</p>'
+            f'<p class="ic-e">장착하면 <b>{esc(func)}</b>이 탑재됩니다. 퀴즈를 맞히면 자동으로 장착돼요.</p></div>'
+            f'<button type="button" class="btn equip" data-item="{n}">장착하기 ▶</button></div>')
 
 # ---------- 섹션 ----------
 def sec_plain():
@@ -104,19 +123,21 @@ def sec_why():
     ps = "".join(f"<p>{esc(x)}</p>" for x in D.WHY)
     return f'''<section id="why" class="band"><div class="wrap two"><div><h2>왜 이 가이드인가</h2>{ps}
 <p class="src">원자료: {esc(M["source"])}. 이 페이지의 그림·예제·실험은 새로 만들었습니다.</p></div>
-<div class="center">{pic("front", "pic front")}<p class="cap">아직 비어 있는 하루봇. 13장을 지나며 부품 13개가 하나씩 끼워집니다.</p></div></div></section>'''
+<div class="center inv">{harubot_svg("live", "smile", "big")}<p class="lvline"><b class="hb-lv">Lv.1</b> · 아이템 <b class="hb-cnt">0</b>/13</p>
+<p class="cap">하루의 얼굴이 나오는 큰 모니터 일체형 PC, 하루봇입니다. 바퀴로 연구실 어디든 움직입니다. 장마다 아이템을 하나씩 장착하면 레벨이 오르고 새 기능이 탑재됩니다.</p>
+<button type="button" class="btn ghost hb-reset">아이템 모두 빼고 처음부터</button></div></div></section>'''
 
 def sec_map():
     cols = []
     for title, sub, ns in D.PARTS:
-        items = "".join(f'<a href="#lv{n}" class="mapi">{icon(D.ASSEMBLY[n][0],"ic sm")}<span>{n}. {esc(D.CH[n-1]["title"].split(" — ")[0])}</span></a>' for n in ns)
+        items = "".join(f'<a href="#lv{n}" class="mapi">{icon(n,"sm")}<span>{n}. {esc(D.CH[n-1]["title"].split(" — ")[0])}</span></a>' for n in ns)
         cols.append(f'<div class="mapcol"><h3>{esc(title)}</h3><p>{esc(sub)}</p><div class="mapl">{items}</div></div>')
     return f'''<section id="map"><div class="wrap"><h2>큰 그림 — 두 묶음</h2><div class="mapw">{cols[0]}<div class="maparrow">→</div>{cols[1]}</div>
 <p class="note">1부는 숫자가 주어졌을 때 판단하는 법, 2부는 직접 겪으며 숫자를 배우는 법입니다. 2부는 6장 말판에서 시작해 13장 행동자·평가자에서 한 바퀴를 닫습니다.</p></div></section>'''
 
 def sec_toc():
-    cards = "".join(f'<a class="tc" href="#lv{c["n"]}">{pic(f"ch{c['n']:02d}", "pic", f"{c['n']}장 썸네일")}<span><b>{c["n"]}장</b> {esc(c["title"].split(" — ")[0])}</span></a>' for c in D.CH)
-    return f'<section id="toc" class="band"><div class="wrap"><h2>목차 — 하루봇 조립 순서</h2><div class="tocg">{cards}<a class="tc" href="#duel">{pic("cover")}<span><b>대결</b> 완성된 하루봇</span></a></div></div></section>'
+    cards = "".join(f'<a class="tc" href="#lv{c["n"]}"><span class="tc-spr">{icon(c["n"],"big")}</span><span class="tc-it">{esc(IT.ITEMS[c["n"]][1])}</span><span><b>{c["n"]}장</b> {esc(c["title"].split(" — ")[0])}</span></a>' for c in D.CH)
+    return f'<section id="toc" class="band"><div class="wrap"><h2>목차 — 하루봇 아이템 장착 순서</h2><div class="tocg">{cards}<a class="tc" href="#duel"><span class="tc-bot">{harubot_svg("full", "proud", "mini", "아이템 13개를 모두 장착한 하루봇")}</span><span><b>대결</b> 완성된 하루봇</span></a></div></div></section>'
 
 CHREF = {1: "russell2021artificial", 2: "russell2021artificial", 3: "russell2021artificial", 4: "hart1968formal", 5: "nash1950equilibrium",
          6: "sutton2018reinforcement", 7: "sutton2018reinforcement", 8: "sutton2018reinforcement", 9: "sutton2018reinforcement",
@@ -148,7 +169,8 @@ def sec_level(c):
 <div class="dialog lvtalk">{talk}</div>
 <div class="panel" data-exp="{n}" aria-label="{n}장 실험"><h3>실험 패널</h3></div>
 <div class="explain"><h3>풀이</h3><ol>{ex}</ol><p class="lim"><b>이 방법의 한계</b> {esc(c["limit"])}</p>{refline(n)}</div>
-<div class="quiz" data-ans="{ans}"><h3>확인 퀴즈</h3><p>{q}</p><div class="opts">{ob}</div><p class="qfb" hidden data-exp="{esc(exp)}"></p></div>
+<div class="quiz" data-ans="{ans}" data-ch="{n}"><h3>확인 퀴즈</h3><p>{q}</p><div class="opts">{ob}</div><p class="qfb" hidden data-exp="{esc(exp)}"></p></div>
+{item_card(n)}
 </div></section>'''
 
 def sec_duel():
@@ -156,7 +178,7 @@ def sec_duel():
     rule = "".join(f"<li>{esc(x)}</li>" for x in d["rule"])
     judges = "".join(say(w, m, esc(t)) for w, m, t in d["judges"])
     return f'''<section id="duel" class="level band"><div class="wrap stack"><h2>{esc(d["title"])}</h2>
-<div class="center">{pic("cover", "pic wide")}<p class="cap">13개 부품이 모두 끼워진 하루봇. 이제 하루의 말투를 누가 더 빨리 배우는지 겨룹니다.</p></div>
+<div class="center">{harubot_svg("full", "proud", "big", "아이템 13개를 모두 장착한 하루봇")}<p class="cap">아이템 13개를 모두 장착한 하루봇(Lv.14). 이제 하루의 말투를 누가 더 빨리 배우는지 겨룹니다.</p></div>
 <ol class="rules">{rule}</ol><div class="dialog lvtalk">{judges}</div>
 <div class="panel" data-exp="duel" aria-label="대결 실험"><h3>대결 패널</h3></div>
 <p class="note">{esc(d["result"])}</p></div></section>'''
@@ -165,9 +187,9 @@ def sec_summary():
     rows = []
     for c in D.CH:
         short = re.split(r"(?<=다)\. ", re.sub("<[^>]+>", "", c["change"]))[0].rstrip(".") + "."
-        rows.append(f'<tr><td>{c["n"]}</td><td>{icon(D.ASSEMBLY[c["n"]][0],"ic sm")}</td><td class="fxs">{c["fx"]}</td><td>{esc(c["title"].split(" — ")[0])}</td><td>{esc(short)}</td></tr>')
+        rows.append(f'<tr><td>{c["n"]}</td><td>{icon(c["n"],"sm")}</td><td class="fxs">{c["fx"]}</td><td>{esc(c["title"].split(" — ")[0])}</td><td>{esc(short)}</td></tr>')
     return f'''<section id="summary"><div class="wrap"><h2>정리 — 바로잡은 공식 13개</h2><div class="scroll"><table class="tbl sum">
-<tr><th>장</th><th>부품</th><th>공식</th><th>한 줄</th><th>원자료와 다른 점</th></tr>{"".join(rows)}</table></div></div></section>'''
+<tr><th>장</th><th>아이템</th><th>공식</th><th>한 줄</th><th>원자료와 다른 점</th></tr>{"".join(rows)}</table></div></div></section>'''
 
 def sec_outro():
     return f'<section id="outro" class="band"><div class="wrap"><h2>아웃트로</h2><div class="dialog">{"".join(say(w,m,esc(t)) for w,m,t in D.OUTRO)}</div><p class="next">{esc(D.NEXT)}</p></div></section>'
@@ -178,6 +200,18 @@ def sec_refs():
 
 CSS = (ROOT / "style.css").read_text(encoding="utf-8")
 JS = (ROOT / "engine.js").read_text(encoding="utf-8")
+IJS = (ROOT / "items.js").read_text(encoding="utf-8")
+def items_json():
+    return json.dumps([{"n": n, "name": it[1], "func": it[2], "can": it[3], "svg": icon(n, "pop")} for n, it in IT.ITEMS.items()],
+                      ensure_ascii=False).replace("</", "<\\/")
+def popup_html():
+    return (f'<div class="hbpop" hidden role="dialog" aria-modal="true" aria-labelledby="hbpop-t"><div class="hbwin">'
+            f'<p class="hbp-k" id="hbpop-t">✦ 아이템 획득 ✦</p><div class="hbp-row"><div class="hbp-spr"></div>'
+            f'<div class="hbp-bot">{harubot_svg("live", "spark", "pop", "아이템을 장착한 하루봇")}</div></div>'
+            f'<p class="hbp-n"></p><p class="hbp-m"></p><p class="hbp-lv"></p>'
+            f'<button type="button" class="btn hbp-ok">확인 ▶</button></div></div>'
+            f'<a class="hbhud" href="#why" aria-label="하루봇 상태 보기"><span class="hud-face"><svg viewBox="0 0 48 48"><use href="#face-smile" class="hb-face"/></svg></span>'
+            f'<span><b class="hb-lv">Lv.1</b><small><span class="hb-cnt">0</span>/13</small></span></a>')
 
 ld = {"@context": "https://schema.org", "@type": "LearningResource", "name": M["title"], "description": M["desc"],
       "inLanguage": "ko", "dateCreated": M["date"], "educationalLevel": "입문",
@@ -189,19 +223,19 @@ page = f'''<!DOCTYPE html>
 <meta property="og:title" content="{esc(M["title"])}"><meta property="og:description" content="{esc(M["desc"])}">
 <meta property="og:image" content="https://adminmrobo.github.io/agentic_ai_crash_guide/assets/img/og_cover.webp"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<style>{CSS}\n{pic_css()}\n/*AVCSS*/</style></head>
-<body><a id="top"></a>
-<nav class="topnav"><div class="wrap"><a href="#top">{esc(M["short"])}</a><span><a href="#toc">목차</a><a href="#duel">대결</a><a href="#summary">정리</a></span></div></nav>
+<style>{CSS}\n/*AVCSS*/</style></head>
+<body><a id="top"></a>{face_defs()}
+<nav class="topnav"><div class="wrap"><a href="#top">{esc(M["short"])}</a><span><button type="button" class="sndbtn" aria-pressed="true">♪ 효과음 켬</button><a href="#toc">목차</a><a href="#duel">대결</a><a href="#summary">정리</a></span></div></nav>
 <header class="hero" id="hero"><div class="wrap two"><div><p class="kicker">{esc(M["series"])} · {M["number"]}</p>
 <h1>AI 에이전트 공식 속성 가이드<br><small>하루봇을 만들며 배우는 13장</small></h1><p class="lead">{esc(M["desc"])}</p>
-<div class="dialog">{say("haru","smile","저를 닮은 챗봇을 만든대요. 이름은 하루봇!")}{say("dr","proud","부품 13개를 하나씩 끼우면서, 부품마다 들어 있는 수식을 같이 익혀 보자.")}</div></div>
-<div class="center">{pic("cover", "pic wide")}</div></div></header>
+<div class="dialog">{say("haru","smile","저를 닮은 챗봇을 만든대요. 이름은 하루봇!")}{say("dr","proud","장마다 아이템을 하나씩 장착하면서, 아이템마다 들어 있는 수식을 같이 익혀 보자. 장착할 때마다 하루봇의 레벨이 올라.")}</div></div>
+<div class="center hero-bot">{harubot_svg("live", "smile", "hb-hero")}<p class="lvline"><b class="hb-lv">Lv.1</b> · 아이템 <b class="hb-cnt">0</b>/13</p></div></div></header>
 {sec_plain()}{sec_cast()}{sec_why()}{sec_map()}{sec_toc()}
 {"".join(sec_level(c) for c in D.CH)}
 {sec_duel()}{sec_summary()}{sec_outro()}{sec_refs()}
 <footer class="foot"><div class="wrap"><p>글 · {esc(M["author"])} (<a href="{M["site"]}">{M["site"]}</a>) · {esc(M["affil"])}</p>
 <p class="src">원자료: {esc(M["source"])}. 공식은 이 페이지에서 바로잡아 다시 썼습니다.</p></div></footer>
-<script>{JS}</script></body></html>'''
+{popup_html()}<script>window.HB_ITEMS={items_json()};{JS}\n{IJS}</script></body></html>'''
 
 page = page.replace("/*AVCSS*/", av_css())
 out = ROOT / "dist" / "index.html"

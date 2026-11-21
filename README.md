@@ -7,13 +7,19 @@
 
 ## 파일
 - index.html — 완성 페이지(단일 파일, 지식 색인·꾸러미 포함)
-- IMG_PROMPTS.md — 그림 15장 프롬프트 v2(16비트 SNES 픽셀 아트, 정본 캐릭터 참고 그림 지정)
-- assets/img/ — 페이지용 그림(표지 1600×900, 썸네일 720×405 WebP, 공유 미리보기 og_cover.webp)과 하루봇 설정 그림 원본(harubot_sheet.png)
+- IMG_PROMPTS.md — 일러스트 픽셀 그림이 필요할 때 쓰는 프롬프트 v3(16비트 SNES 픽셀 아트, 이동형 일체형 PC 하루봇, RPG 아이템 장착)
+- assets/img/og_cover.webp — 공유 미리보기(코드로 그린 픽셀 하루봇). v1 일반 일러스트 그림은 픽셀 방침 위반으로 삭제(2026-11-21)
 - assets/avatar/ — 대화칸 캐릭터 얼굴(fruitfly-lab-expressions 정본 픽셀 표정에서 잘라 128px로 줄임)
-- src/ — 문구 데이터(data_ko.py), 빌드(build.py), 실험 엔진(engine.js), 스타일, 검산(verify.py, duel.py)
+- src/ — 문구 데이터(data_ko.py), 아이템 데이터·픽셀 스프라이트(items.py), 빌드(build.py), 실험 엔진(engine.js), 아이템 장착 엔진(items.js), 스타일, 검산(verify.py, duel.py)
+
+## 하루봇과 아이템
+- 하루봇은 하루의 표정이 나오는 큰 모니터 일체형 PC이고, 받침의 바퀴로 움직입니다. 모니터 속 얼굴은 fruitfly-lab-expressions 정본 픽셀 표정을 씁니다.
+- 장마다 RPG 아이템 1개(12×12 픽셀 스프라이트)를 줍니다. 퀴즈를 맞히거나 '장착하기'를 누르면 장착됩니다.
+- 장착하면 「○○ 기능이 탑재됐습니다! 이제 ○○ 가능합니다」 메시지, LEVEL UP 표시, 8비트 효과음(Web Audio, 파일 없음)이 나옵니다. 13개를 모두 장착하면 Lv.MAX 완성 팡파르.
+- 장착 상태와 효과음 켬/끔은 읽는 사람의 브라우저에만 저장됩니다.
 - kg/ — kg.json · refs.json · meta.json · check_report.md · retrofit_log.md
 
 ## 고치는 법
-src/data_ko.py에서 문구를 고친 뒤 python3 build.py (그림은 assets/img/에서 읽어 페이지에 넣음) → ai-lab-retrofit의 retrofit.py로 꼬리표를 다시 답니다.
+src/data_ko.py·items.py에서 문구를 고친 뒤 `python3 build.py` → ai-lab-retrofit의 `retrofit.py dist/index.html --kg ../kg/kg.json --refs ../kg/refs.json --meta ../kg/meta.json -o ../index.html` → `python3 postfix.py ../index.html`(금지 표현 점검)
 
 글 · 안상선 (https://adminmrobo.github.io/who_am_i/who_am_i.html) · (주)M-Robo 대표
