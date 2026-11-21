@@ -111,11 +111,14 @@ def item_card(n):
 def sec_plain():
     ab = "".join(f'<dt>{k}</dt><dd>{esc(v[0])} — {esc(v[1])}</dd>' for k, v in D.ABBR.items())
     P = D.PLAIN
+    sy = "".join(f'<tr><td class="fxp">{esc(a)}</td><td>{esc(b)}</td><td>{esc(c)}</td><td><a href="#lv{n}">{n}장</a></td></tr>' for a, b, c, n in D.SYMBOLS)
     return f'''<section id="plain" class="band"><div class="wrap">
 <h2>처음 오신 분께 — 이 페이지를 3줄로</h2>
 <ol class="three"><li><b>무엇을</b> {esc(P["what"])}</li><li><b>왜 중요한가</b> {esc(P["why"])}</li><li><b>업무에서는</b> {esc(P["work"])}</li></ol>
 <p class="nocode">{esc(P["nocode"])}</p>
-<details class="abbr"><summary>영어 약어 풀이</summary><dl>{ab}</dl></details></div></section>'''
+<details class="abbr"><summary>영어 약어 풀이</summary><dl>{ab}</dl></details>
+<details class="abbr syms"><summary>기호 사전 — 이 페이지에 나오는 기호 15개 (막히면 여기로)</summary>
+<table class="tbl symt"><tr><th>기호</th><th>읽는 법</th><th>뜻</th><th>처음 나오는 장</th></tr>{sy}</table></details></div></section>'''
 
 def sec_cast():
     order = ["dr", "haru", "fly", "aba", "bot", "sia", "moa", "x1", "x2", "x3"]
@@ -161,10 +164,22 @@ def sec_level(c):
     q, opts, ans, exp = c["quiz"]
     ob = "".join(f'<button type="button" class="opt">{o}</button>' for o in opts)
     band = " band" if n % 2 == 0 else ""
+    E = D.EASY2[n]
+    fxl = c["fx"].split("<br>")
+    fx_more = (f'<details class="fxmore"><summary>식 더 보기 (몰라도 됩니다)</summary><div class="fx sub">{"<br>".join(fxl[1:])}</div></details>'
+               if len(fxl) > 1 else "")
+    names = {x["n"]: x["title"].split("—")[-1].replace("(새로 더한 장)", "").strip() for x in D.CH}
+    prev = f'<a href="#lv{n-1}">{n-1}장 {esc(names[n-1])}</a>' if n > 1 else "출발"
+    nxt = f'<a href="#lv{n+1}">{n+1}장 {esc(names[n+1])}</a>' if n < 13 else '<a href="#duel">대결</a>'
+    claim, cq, ca = E["ai"]
     return f'''<section id="lv{n}" class="level{band}"><div class="wrap stack">
 <header class="lvh"><span class="lvn">{n}</span><div><h2>{esc(c["title"])}</h2><p class="tag">{esc(c["tag"])} · {esc(c["orig"])}</p></div></header>
 {thumb(n)}
-<div class="fx">{c["fx"]}</div>
+<p class="route">앞에서 {prev} → <b>이번 {n}장 {esc(names[n])}</b> → 다음 {nxt}</p>
+<div class="dialog lvopen">{say("dr", "smile", esc(E["open"]))}</div>
+<div class="words"><p class="w-k">먼저 말로 쓴 식</p><p class="w-f">{E["words"]}</p></div>
+<div class="fxbox"><p class="fx-k">같은 내용을 기호로 쓰면 — 기호는 아래 조수 상자와 <a href="#plain">기호 사전</a>에서 하나씩 풀어 줍니다</p>
+<div class="fx">{fxl[0]}</div>{fx_more}</div>
 <div class="easy"><div class="ez-why"><h3>왜 이 방법을 쓰나</h3><p>{esc(why[0])}</p><p>{esc(why[1])}</p><p>{why[2]}</p><p class="ez">쉽게 말하면 — {esc(why[3])}</p></div>
 <div class="ez-math"><h3>수학 수식을 어려워하는 조수가 대신 물어봅니다</h3>{say("haru","shock",c["ask"])}
 <p class="school">학교 수학으로 보면 — <b>{esc(c["school"])}</b></p><table class="tbl pcs"><tr><th>식 조각</th><th>읽는 법</th></tr>{pieces}</table>
@@ -173,6 +188,9 @@ def sec_level(c):
 <div class="pair"><div><h3>일상으로 치면</h3><p>{esc(c["daily"])}</p></div><div><h3>하루봇에서는</h3><p>{c["bot"]}</p></div></div>
 <div class="dialog lvtalk">{talk}</div>
 <div class="panel" data-exp="{n}" aria-label="{n}장 실험"><h3>실험 패널</h3></div>
+<div class="aichk"><h3>AI가 이렇게 답한다면? — 그대로 믿지 말고 확인하기</h3>
+<p class="ai-say"><span class="ai-tag">AI</span> “{esc(claim)}”</p><p class="ai-q"><b>확인 질문</b> {esc(cq)}</p>
+<details><summary>확인 결과 보기</summary><p>{ca}</p></details></div>
 <div class="explain"><h3>풀이</h3><ol>{ex}</ol><p class="lim"><b>이 방법의 한계</b> {esc(c["limit"])}</p>{refline(n)}</div>
 <div class="quiz" data-ans="{ans}" data-ch="{n}"><h3>확인 퀴즈</h3><p>{q}</p><div class="opts">{ob}</div><p class="qfb" hidden data-exp="{esc(exp)}"></p></div>
 {item_card(n)}

@@ -219,3 +219,25 @@ h3{font-size:1.08rem;margin:0 0 .5em}
 .th-stage .pic{border:0;border-radius:6px}
 .sheet{margin:28px auto 0;max-width:820px;text-align:center}
 .sheet figcaption{color:var(--mute);font-size:.92rem;margin-top:8px}
+
+/* 쉽게 읽기 보강 (extend v1.2) */
+.route{margin:0;font-size:.92rem;color:var(--mute)}
+.route a{color:var(--mute)}.route b{color:var(--ink)}
+.dialog.lvopen{padding:0}
+.words{background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:18px 22px}
+.words .w-k{margin:0 0 6px;font-weight:800;color:var(--orange);font-size:.9rem}
+.words .w-f{margin:0;font-size:1.18rem;line-height:1.9}
+.words .w-f b{background:#fff;border-bottom:3px solid #fdba74;padding:0 4px;border-radius:3px}
+.fxbox{display:flex;flex-direction:column;gap:6px}
+.fxbox .fx-k{margin:0;font-size:.85rem;color:var(--mute)}
+.fxbox .fx{font-size:1.15rem}
+.fxmore summary{cursor:pointer;color:var(--mute);font-size:.88rem}
+.fx.sub{font-size:1rem;margin-top:8px}
+.aichk{border:1px solid var(--rule);border-left:5px solid #7c3aed;border-radius:12px;padding:18px 22px;background:#faf5ff}
+.aichk h3{margin:0 0 10px;font-size:1.02rem}
+.aichk p{margin:.4em 0}
+.ai-tag{display:inline-block;background:#7c3aed;color:#fff;font-size:.75rem;font-weight:800;border-radius:4px;padding:1px 6px;margin-right:6px}
+.aichk details summary{cursor:pointer;color:#7c3aed;font-weight:700}
+.syms .symt td:first-child{white-space:nowrap}
+.symt{margin-top:10px}
+.pcs th{white-space:nowrap}
