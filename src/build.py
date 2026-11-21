@@ -13,26 +13,19 @@ def icon(n, cls="ic"):
     """장 번호 n의 아이템 픽셀 스프라이트."""
     return f'<svg class="spr {cls}" viewBox="0 0 12 12" aria-hidden="true"><use href="#it-{n}"/></svg>'
 
-# ---------- 하루봇: 하루가 나오는 큰 모니터 일체형 PC (바퀴로 움직임) ----------
+# ---------- 하루봇: 하루의 표정이 나오는 큰 모니터 (본체 없음) + 아이템 인벤토리 ----------
 def _px(x, y, w, h, fill, extra=""):
     return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}"{extra}/>'
 def _box(x, y, w, h, line, fill):
     """모서리를 한 픽셀 깎은 픽셀 상자(외곽선 1px)."""
     return (_px(x+1, y, w-2, h, line) + _px(x, y+1, w, h-2, line)
             + _px(x+1, y+1, w-2, h-2, fill))
-SLOTS = [(8+i*10, 50) for i in range(5)] + [(13+i*10, 59) for i in range(4)] + [(13+i*10, 68) for i in range(4)]
+SLOTS = [(4.5+i*8, 48) for i in range(7)] + [(8.5+i*8, 56.5) for i in range(6)]
 FACES = ["smile", "spark", "proud", "think", "shock", "sad", "doubt"]
 def harubot_svg(mode="live", mood="smile", cls="", label=None):
     """mode: 'live'(장착 상태를 따라감) · 'full'(13개 모두) · 정수 n(n장 장면: 1~n-1 장착, n 장착 중)."""
     K, O, OL, CR = "#2b2118", "#ea580c", "#fb923c", "#fff7ed"
     p = []
-    # 바퀴(이동형 받침)
-    for wx in (9, 47):
-        p.append(_px(wx+3, 78, 2, 2, "#475569") + _box(wx, 80, 8, 6, K, "#475569") + _px(wx+3, 82, 2, 2, "#cbd5e1"))
-    # 받침(아이템 장착대)
-    p.append(_box(5, 46, 54, 33, K, CR) + _px(6, 47, 52, 1, OL) + _px(6, 77, 52, 1, "#f2d7b6"))
-    # 목
-    p.append(_px(27, 42, 10, 5, K) + _px(28, 42, 8, 5, "#94a3b8") + _px(28, 44, 8, 1, "#64748b"))
     # 모니터
     p.append(_box(2, 1, 60, 42, K, O) + _px(3, 2, 58, 1, OL) + _px(3, 3, 1, 38, OL))
     p.append(_px(31, 2, 2, 2, K) + _px(31, 2, 1, 1, "#64748b"))  # 카메라
@@ -41,6 +34,8 @@ def harubot_svg(mode="live", mood="smile", cls="", label=None):
     p.append(f'<svg x="8" y="6" width="48" height="30" viewBox="0 5.5 48 30" preserveAspectRatio="xMidYMid slice">'
              f'<use class="hb-face" href="#face-{mood}" width="48" height="48"/></svg>')
     p.append(_px(8, 6, 48, 1, "rgba(255,255,255,.35)"))
+    # 아이템 인벤토리(모니터 아래 RPG 아이템 창 — 하루봇의 몸이 아님)
+    p.append(_box(2, 46, 60, 19, K, "#1f2937") + _px(3, 47, 58, 1, "#334155"))
     for i, (x, y) in enumerate(SLOTS, start=1):
         if mode == "full":
             st = "done"
@@ -49,11 +44,11 @@ def harubot_svg(mode="live", mood="smile", cls="", label=None):
         else:
             st = ""
         p.append(f'<g class="slot {st}" data-i="{i}">'
-                 f'<rect class="sl-bg" x="{x}" y="{y}" width="8" height="8"/>'
-                 f'<use class="sl-it" href="#it-{i}" x="{x+1}" y="{y+1}" width="6" height="6"/></g>')
+                 f'<rect class="sl-bg" x="{x}" y="{y}" width="7" height="7"/>'
+                 f'<use class="sl-it" href="#it-{i}" x="{x+0.5}" y="{y+0.5}" width="6" height="6"/></g>')
     data = f' data-mode="{mode}"'
-    lab = label or ("하루봇 — 하루의 얼굴이 나오는 큰 모니터 일체형 PC. 바퀴로 움직이고, 받침의 13자리에 아이템을 장착합니다")
-    return (f'<svg class="harubot {cls}" viewBox="0 0 64 87" shape-rendering="crispEdges"{data} role="img" '
+    lab = label or ("하루봇 — 하루의 표정이 나오는 큰 모니터. 아래 아이템 창의 13자리에 아이템을 장착합니다")
+    return (f'<svg class="harubot {cls}" viewBox="0 0 64 66" shape-rendering="crispEdges"{data} role="img" '
             f'aria-label="{html.escape(lab, quote=True)}">{"".join(p)}</svg>')
 
 def face_defs():
@@ -124,7 +119,7 @@ def sec_why():
     return f'''<section id="why" class="band"><div class="wrap two"><div><h2>왜 이 가이드인가</h2>{ps}
 <p class="src">원자료: {esc(M["source"])}. 이 페이지의 그림·예제·실험은 새로 만들었습니다.</p></div>
 <div class="center inv">{harubot_svg("live", "smile", "big")}<p class="lvline"><b class="hb-lv">Lv.1</b> · 아이템 <b class="hb-cnt">0</b>/13</p>
-<p class="cap">하루의 얼굴이 나오는 큰 모니터 일체형 PC, 하루봇입니다. 바퀴로 연구실 어디든 움직입니다. 장마다 아이템을 하나씩 장착하면 레벨이 오르고 새 기능이 탑재됩니다.</p>
+<p class="cap">하루의 표정이 나오는 큰 모니터, 하루봇입니다. 아래는 하루봇의 아이템 창입니다. 장마다 아이템을 하나씩 장착하면 레벨이 오르고 새 기능이 탑재됩니다.</p>
 <button type="button" class="btn ghost hb-reset">아이템 모두 빼고 처음부터</button></div></div></section>'''
 
 def sec_map():

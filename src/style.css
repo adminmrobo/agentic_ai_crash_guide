@@ -145,14 +145,14 @@ h3{font-size:1.08rem;margin:0 0 .5em}
 @media (max-width:700px){.thumb{grid-template-columns:1fr}.tocg{grid-template-columns:repeat(2,1fr)}}
 
 /* ===== 하루봇 (픽셀 일체형 PC) · RPG 아이템 ===== */
-.harubot{display:block;width:100%;height:auto;aspect-ratio:64/87;margin:0 auto;image-rendering:pixelated}
+.harubot{display:block;width:100%;height:auto;aspect-ratio:64/66;margin:0 auto;image-rendering:pixelated}
 .harubot.hb-hero{max-width:380px}.harubot.big{max-width:320px}.harubot.mid{max-width:260px}.harubot.mini{max-width:96px}.harubot.pop{max-width:150px}
-.slot .sl-bg{fill:#fdf2e4;stroke:#d6b48d;stroke-width:.5;stroke-dasharray:1 1}
+.slot .sl-bg{fill:#334155;stroke:#94a3b8;stroke-width:.5;stroke-dasharray:1 1}
 .slot .sl-it{opacity:0}
-.slot.done .sl-bg{fill:#ffedd5;stroke:#2b2118;stroke-dasharray:none}
+.slot.done .sl-bg{fill:#fff7ed;stroke:#fbbf24;stroke-dasharray:none}
 .slot.done .sl-it{opacity:1}
 .slot.now .sl-bg{fill:#fde68a;stroke:#db2777;stroke-dasharray:none;animation:hbblink 1s steps(2) infinite}
-.slot.now .sl-it{opacity:.35}
+.slot.now .sl-it{opacity:.45}
 .slot.new .sl-bg{fill:#fef08a;stroke:#db2777;stroke-dasharray:none}
 .slot.new .sl-it{opacity:1;animation:hbpop .6s steps(6) both}
 .hb-led{animation:hbblink 1.6s steps(2) infinite}
@@ -165,7 +165,7 @@ h3{font-size:1.08rem;margin:0 0 .5em}
 .btn.ghost{background:#fff;color:var(--mute);border:1px solid var(--rule);font-size:.88rem;margin-top:6px}
 .inv .cap{max-width:420px;margin-inline:auto}
 /* 장 그림 */
-.thumb{grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:linear-gradient(#fff 0 78%,#f1f5f9 78%)}
+.thumb{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 .th-stage{padding:6px 0}
 .thumb figcaption{flex-direction:column;align-items:flex-start;gap:10px}
 .th-it{display:flex;gap:10px;align-items:center;font-size:1.15rem}
